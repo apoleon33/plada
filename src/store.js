@@ -7,7 +7,7 @@ const db = writable({
 			name: 'Chamallow',
 			link: '/Chamallow.PNG',
 			description:
-				"Né et trouvé dans la rue avec ses trois frères, Chamallow est le dernier de sa fratrie a ne pas avoir été adopté! Il a pourtant bien évolué dans sa famille d'accueil et adore les câlins et interactions avec les humain. Il est testé FIV/FELV négatif et apprécierait la présence d'un autre congénère pour jouer",
+				"Né et trouvé dans la rue avec ses trois frères, Chamallow est le dernier de sa fratrie a ne pas avoir été adopté! Il a pourtant bien évolué dans sa famille d'accueil et adore les câlins et interactions avec les humain. Il est testé FIV/FELV négatif et apprécierait la présence d'un autre congénère pour jouer. Nous recherchons pour lui une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
 			naissance: 2020,
 			sexe: 'Mâle',
 			type: 'Européen',
@@ -21,7 +21,7 @@ const db = writable({
 			id: 1,
 			name: 'Zoya',
 			link: '/Zoya.PNG',
-			description: "Secourue du Bon Coin par une bénévole, cette jolie minette à la couleur atypique recherche toujours sa famille pour la vie. Elle est extrêmement sociable, ok chiens et chats et FIV/FELV négatif. C'est une princesse adorable avec tout le monde qui fera le bonheur de ses futurs adoptants",
+			description: "Secourue du Bon Coin par une bénévole, cette jolie minette à la couleur atypique recherche toujours sa famille pour la vie. Elle est extrêmement sociable, ok chiens et chats et FIV/FELV négatif. C'est une princesse adorable avec tout le monde qui fera le bonheur de ses futurs adoptants. Nous recherchons pour elle une famille sans enfants en bas-âge et si extérieur, un qui soit sécurisé.",
 			naissance: 2021,
 			sexe: 'Femelle',
 			type: 'Européen',
@@ -31,11 +31,31 @@ const db = writable({
 			id: 2,
 			name: 'Joy',
 			link: '/Joy.PNG',
-			description: "Joy est un adorable chat ayant énormément souffert. Secouru in extremis de plus d'un an d'errance, nous l'avons trouvé rempli de parasites, avec une rate gonflée et une stomatite importante. Il a également dû être recastré, et conserve à ce jour des soucis d'incontinence qui font toujours l'objet d'investigations. C'est un chat adorable qui a terriblement envie de vivre. Il vit actuellement en FALD, mais nous ne desespérons pas de lui trouver une famille définitive, patiente et surtout compréhensive concernant les pipis hors litière",
+			description: "Joy est un adorable chat ayant énormément souffert. Secouru in extremis de plus d'un an d'errance, nous l'avons trouvé rempli de parasites, avec une rate gonflée et une stomatite importante. Il a également dû être recastré, et conserve à ce jour des soucis d'incontinence qui font toujours l'objet d'investigations. C'est un chat adorable qui a terriblement envie de vivre. Il vit actuellement en FALD, mais nous ne desespérons pas de lui trouver une famille définitive, patiente et surtout compréhensive concernant les pipis hors litière. Nous recherchons pour lui une famille sans enfants en bas-âge ni autres chats, et si extérieur, un qui soit sécurisé.",
 			naissance: 2019,
 			sexe: 'Mâle',
 			type: 'Main Coon',
 			additionnalPhoto: ['/Joy (2).PNG']
+		},
+		{
+			id: 3,
+			name: 'Maxou',
+			link: '/Maxou.PNG',
+			description: "Habitué à vivre dehors et en groupe, Maxou a été secouru à la suite du décès de la dame qui le nourrissait. C'est un chat discret et timide, mais avec du temps et de la patience il saura vous faire confiance et s'épanouir. Il est ok chats. Nous recherchons pour lui une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
+			naissance: 2016,
+			sexe: 'Mâle',
+			type: 'Européen poils longs',
+			additionnalPhoto: []
+		},
+		{
+			id: 4,
+			name: 'Papili',
+			link: '/Papili.PNG',
+			description: "Aujourd'hui très bienportant, Papili a été secouru de longues années d'errance il y a peu et est arrivé à l'association parasité, maigre et avec de gros problèmes dentaires. C'est un chat adorable qui a besoin d'être mis en confiance, mais qui devient incroyablement câlin et affectueux quand à l'aise. On lui a retiré plusieurs dents, il mange uniquement de la pâtée mais ne présente pas d'autres problèmes particulier. Il s'entend très bien avec ses congénères et cherche aujourd'hui sa famille pour la vie. Nous recherchons pour lui une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
+			naissance: 2013,
+			sexe: 'Mâle',
+			type: 'Européen poils mi-longs',
+			additionnalPhoto: []
 		}
 	],
 	chiens: [
