@@ -5,7 +5,7 @@ const db = writable({
 		{
 			id: 0,
 			name: 'Chamallow',
-			link: '/Chamallow.jpg',
+			link: '/Chamallow.PNG',
 			description:
 				"Né et trouvé dans la rue avec ses trois frères, Chamallow est le dernier de sa fratrie a ne pas avoir été adopté! Il a pourtant bien évolué dans sa famille d'accueil et adore les câlins et interactions avec les humain. Il est testé FIV/FELV négatif et apprécierait la présence d'un autre congénère pour jouer",
 			naissance: 2020,
@@ -20,7 +20,7 @@ const db = writable({
 		{
 			id: 1,
 			name: 'Zoya',
-			link: '/Zoya.jpg',
+			link: '/Zoya.PNG',
 			description: "Secourue du Bon Coin par une bénévole, cette jolie minette à la couleur atypique recherche toujours sa famille pour la vie. Elle est extrêmement sociable, ok chiens et chats et FIV/FELV négatif. C'est une princesse adorable avec tout le monde qui fera le bonheur de ses futurs adoptants",
 			naissance: 2021,
 			sexe: 'Femelle',
@@ -30,12 +30,12 @@ const db = writable({
 		{
 			id: 2,
 			name: 'Joy',
-			link: '/Joy.jpg',
-			description: 'Joy est un adorable chat ayant énormément souffert',
+			link: '/Joy.PNG',
+			description: "Joy est un adorable chat ayant énormément souffert. Secouru in extremis de plus d'un an d'errance, nous l'avons trouvé rempli de parasites, avec une rate gonflée et une stomatite importante. Il a également dû être recastré, et conserve à ce jour des soucis d'incontinence qui font toujours l'objet d'investigations. C'est un chat adorable qui a terriblement envie de vivre. Il vit actuellement en FALD, mais nous ne desespérons pas de lui trouver une famille définitive, patiente et surtout compréhensive concernant les pipis hors litière",
 			naissance: 2019,
 			sexe: 'Mâle',
 			type: 'Main Coon',
-			additionnalPhoto: []
+			additionnalPhoto: ['/Joy (2).PNG']
 		}
 	],
 	chiens: [
