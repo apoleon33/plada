@@ -4,12 +4,12 @@ const db = writable({
 	chats: [
 		{
 			id: 0,
-			name: 'Albert',
-			link: 'https://static.pratique.fr/images/unsized/ch/chat-propre.jpg',
+			name: 'Chamallow',
+			link: '/Chamallow.jpg',
 			description:
-				'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
-			naissance: 2017,
-			sexe: 'Male',
+				"Né et trouvé dans la rue avec ses trois frères, Chamallow est le dernier de sa fratrie a ne pas avoir été adopté! Il a pourtant bien évolué dans sa famille d'accueil et adore les câlins et interactions avec les humain. Il est testé FIV/FELV négatif et apprécierait la présence d'un autre congénère pour jouer",
+			naissance: 2020,
+			sexe: 'Mâle',
 			type: 'Européen',
 			additionnalPhoto: [
 				'https://www.eleveurs-online.com/data/evolutions/13/evol-12666.1000.jpg',
@@ -19,21 +19,21 @@ const db = writable({
 		},
 		{
 			id: 1,
-			name: 'Alex',
-			link: 'https://tse4.mm.bing.net/th?id=OIP.xfM1HC9BTg4GRhk8EHDdeQHaEo&pid=Api',
-			description: 'une belle description',
-			naissance: 2014,
+			name: 'Zoya',
+			link: '/Zoya.jpg',
+			description: "Secourue du Bon Coin par une bénévole, cette jolie minette à la couleur atypique recherche toujours sa famille pour la vie. Elle est extrêmement sociable, ok chiens et chats et FIV/FELV négatif. C'est une princesse adorable avec tout le monde qui fera le bonheur de ses futurs adoptants",
+			naissance: 2021,
 			sexe: 'Femelle',
-			type: 'Main Coon',
+			type: 'Européen',
 			additionnalPhoto: []
 		},
 		{
 			id: 2,
-			name: 'Toro',
-			link: 'https://lemagduchat.ouest-france.fr/images/dossiers/2022-07/vocabulaire-chat-060132.jpg',
-			description: 'une belle description',
-			naissance: 2014,
-			sexe: 'Femelle',
+			name: 'Joy',
+			link: '/Joy.jpg',
+			description: 'Joy est un adorable chat ayant énormément souffert',
+			naissance: 2019,
+			sexe: 'Mâle',
 			type: 'Main Coon',
 			additionnalPhoto: []
 		}
