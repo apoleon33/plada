@@ -8,15 +8,31 @@
 
 <div id="wrapper">
 	<div id="imgWrapper">
-		<img src={listImage[0]} alt="une photo de {nomChat}" class="image" />
-		<img src={listImage[1]} alt="une photo de {nomChat}" class="image" />
-		<img src={listImage[2]} alt="une photo de {nomChat}" class="image" />
+		<div class="centering">
+			<img src={listImage[0]} alt="une photo de {nomChat}" class="image" />
+		</div>
+
+		<div class="centering">
+			<img src={listImage[1]} alt="une photo de {nomChat}" class="image" />
+		</div>
+		<div class="centering">
+			<img src={listImage[2]} alt="une photo de {nomChat}" class="image" />
+		</div>
 	</div>
 </div>
 
 <style>
 	.image {
-		max-height: 300px;
+		object-fit: cover;
+		height: 40vh;
+		width: 40vh;
+		border-radius: 100%;
+	}
+
+	.centering {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	#wrapper {
