@@ -12,6 +12,7 @@
 
 <style>
 	img {
+		object-fit: cover;
 		width: 500px;
 		height: 333px;
 		border-radius: 10px 10px 0 0;

@@ -8,7 +8,7 @@
 	<div class="dropdown">
 		<span> <a href="/" class="text">L'association </a></span>
 		<div class="dropdown-content">
-			<a href="/" class="text option-menu"> Acceuil </a>
+			<a href="/" class="text option-menu"> Accueil </a>
 			<a href="/association/contact" class="text option-menu"> Contact</a>
 			<a href="/association/archives" class="text option-menu"> Archives </a>
 		</div>
