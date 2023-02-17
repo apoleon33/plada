@@ -44,7 +44,11 @@ const db = writable({
 			naissance: 2016,
 			sexe: 'Mâle',
 			type: 'Européen poils longs',
-			additionnalPhoto: []
+			additionnalPhoto: ['/chats/maxou/maxou2.jpg'
+					  '/chats/maxou/maxou3.jpg'
+					  '/chats/maxou/maxou4.jpg'
+					  '/chats/maxou/maxou5.jpg'
+					  '/chats/maxou/maxou6.jpg']
 		},
 		{
 			id: 4,
