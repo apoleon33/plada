@@ -27,6 +27,7 @@
 		<div id="textWrapper">
 			<h1 class="text" id="name">{animal.name}</h1>
 			<h2 class="text">{animal.sexe}</h2>
+			<h2 class="text">{animal.type}</h2>
 			<h2 class="text">Né(e) en {animal.naissance}</h2>
 			<h3 class="text" id="description">{animal.description}</h3>
 			<Interested name={animal.name} />
