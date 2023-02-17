@@ -22,7 +22,9 @@ const db = writable({
 			naissance: 2021,
 			sexe: 'Femelle',
 			type: 'Européen',
-			additionnalPhoto: ['/chats/zoya/Zoya (2).PNG']
+			additionnalPhoto: ['/chats/zoya/Zoya (2).PNG'
+					  '/chats/zoya/zoya3.jpg'
+					  '/chats/zoya/zoya4.jpg']
 		},
 		{
 			id: 2,
@@ -33,7 +35,9 @@ const db = writable({
 			naissance: 2019,
 			sexe: 'Mâle',
 			type: 'Main Coon',
-			additionnalPhoto: ['/chats/joy/Joy (2).PNG']
+			additionnalPhoto: ['/chats/joy/Joy (2).PNG'
+					  '/chats/joy/joy2.jpg'
+					  '/chats/joy/joy3.jpg']
 		},
 		{
 			id: 3,
