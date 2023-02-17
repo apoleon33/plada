@@ -3,36 +3,39 @@
 
 	import { fade } from 'svelte/transition';
 	import db from '../../../../store';
-	import Bandeau from './Bandeau.svelte';
 	import Interested from './Interested.svelte';
 	import ImageSwitcher from './ImageSwitcher.svelte';
+	import Recommendation from './Recommendation.svelte';
 
 	let bigImage = 0;
-	let listAnimals, animal;
-	db.subscribe((data) => {
-		listAnimals = data;
-	});
-	animal = listAnimals[data.animal][data.id];
+	let listAnimals, animal, imgToSend;
+	$: {
+		db.subscribe((data) => {
+			listAnimals = data;
+		});
+		animal = listAnimals[data.animal][data.id];
 
-	let imgToSend = [animal.link];
-	imgToSend = imgToSend.concat(animal.additionnalPhoto);
+		imgToSend = [animal.link];
+		imgToSend = imgToSend.concat(animal.additionnalPhoto);
+	}
 </script>
 
 <div id="empty" />
-
-<div id="wrapper" in:fade>
-	<div id="imgWrapper"><img alt={animal.name} src={imgToSend[bigImage]} /></div>
-	<div id="textWrapper">
-		<h1 class="text" id="name">{animal.name}</h1>
-		<h2 class="text">{animal.sexe}</h2>
-		<h2 class="text">Né(e) en {animal.naissance}</h2>
-		<h3 class="text" id="description">{animal.description}</h3>
-		<Interested name={animal.name} />
-		<ImageSwitcher listImage={imgToSend} bind:bigImage />
+{#key (animal, data)}
+	<div id="wrapper" in:fade>
+		<div id="imgWrapper"><img alt={animal.name} src={imgToSend[bigImage]} /></div>
+		<div id="textWrapper">
+			<h1 class="text" id="name">{animal.name}</h1>
+			<h2 class="text">{animal.sexe}</h2>
+			<h2 class="text">Né(e) en {animal.naissance}</h2>
+			<h3 class="text" id="description">{animal.description}</h3>
+			<Interested name={animal.name} />
+			<ImageSwitcher listImage={imgToSend} bind:bigImage />
+		</div>
 	</div>
-</div>
 
-<Bandeau listImage={animal.additionnalPhoto} nomChat={animal.name} />
+	<Recommendation animal={data.animal} />
+{/key}
 
 <style>
 	img {
