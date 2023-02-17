@@ -75,7 +75,19 @@ const db = writable({
 				'/chats/papili/papili5.jpg'
 			],
 			statut: 'non adopté'
-		}
+		},
+		{
+			id: 5,
+			name: 'Tao et Frida',
+			link: '/chats/tao et frida/taofrida.jpg',
+			description:
+				"Provenant d'une portée de quatre chatons noirs abandonnés sans leur maman, Frida et Tao sont inséparables. Il sont nés probablement en juin 2022 et sont en plein âge de découvertes et jeux. Ils seront à adopter ensemble de préférence, ou en tout cas dans un foyer avec un autre congénère afin d'assurer la contnuité de l'apprentissage des codes félins. Il sont testés FIV/FELV négatif. Nous recherchons pour eux une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
+			naissance: 2022,
+			sexe: 'Mâle, femelle',
+			type: 'Européens',
+			additionnalPhoto: ['/chats/tao et frida/taofrida2.jpg','/chats/tao et frida/taofrida3.jpg', '/chats/tao et frida/taofrida4.jpg', '/chats/tao et frida/taofrida5.jpg'],
+			statut: 'non adopté'
+		},
 	],
 	chiens: [
 		{
