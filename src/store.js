@@ -88,6 +88,18 @@ const db = writable({
 			additionnalPhoto: ['/chats/tao et frida/taofrida2.jpg','/chats/tao et frida/taofrida3.jpg', '/chats/tao et frida/taofrida4.jpg', '/chats/tao et frida/taofrida5.jpg'],
 			statut: 'non adopté'
 		},
+		{
+			id: 6,
+			name: 'Caline alias Choupette',
+			link: '/chats/caline/caline.jpg',
+			description:
+				"Après de longs mois d'errance, Caline a été recueillie par notre association. C'est une minette très sociable et câline, qui après une mise en règles complète et 6 longs mois d'attente a fini par trouver sa douce famille en novembre 2022",
+			naissance: 2020,
+			sexe: 'Femelle',
+			type: 'Typée chartreux',
+			additionnalPhoto: ['/chats/caline/caline2.jpg', '/chats/caline/caline3.jpg', '/chats/caline/caline4.jpg', '/chats/caline/caline5.jpg'],
+			statut: 'adopté'
+		},
 	],
 	chiens: [
 		{
