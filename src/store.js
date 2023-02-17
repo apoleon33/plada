@@ -64,7 +64,7 @@ const db = writable({
 			naissance: 2013,
 			sexe: 'Mâle',
 			type: 'Européen poils mi-longs',
-			additionnalPhoto: []
+			additionnalPhoto: ['/chats/papili/papili2.jpg', '/chats/papili/papili3.jpg', '/chats/papili/papili4.jpg', '/chats/papili/papili5.jpg']
 		}
 	],
 	chiens: [
