@@ -76,7 +76,7 @@ const db = writable({
 			naissance: 2012,
 			sexe: 'Femelle',
 			type: 'Croisé Bouledogue/Chihuahua',
-			additionnalPhoto: ['/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby3.jpg', '/chiens/shelby/shelby4.jpg', '/chiens/shelby/shelby5.jpg']
+			additionnalPhoto: ['/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby3.jpg', '/chiens/shelby/shelby4.jpg', '/chiens/shelby/shelby5.jpg']
 		},
 		{
 			id: 1,
