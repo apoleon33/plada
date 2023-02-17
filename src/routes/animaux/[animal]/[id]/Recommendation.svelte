@@ -3,6 +3,10 @@
 
 	import db from '../../../../store';
 
+	const isStillToAdopt = (element) => {
+		return element.statut === 'non adopté';
+	};
+
 	const randomInt = (min, max) => {
 		let rand = Math.floor(Math.random() * (max - min)) + min;
 		return notInList(alreadyUsedNumber, rand) ? rand : randomInt(min, max);
@@ -27,7 +31,9 @@
 	for (let i = 0; i < 4 && i < listAnimals[animal].length; i++) {
 		randomNumber = randomInt(0, listAnimals[animal].length);
 
-		listRandomNumbers.push(randomNumber);
+		if (isStillToAdopt(listAnimals[animal][randomNumber])) {
+			listRandomNumbers.push(randomNumber);
+		}
 		alreadyUsedNumber.push(randomNumber);
 	}
 

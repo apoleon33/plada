@@ -6,12 +6,23 @@
 	import Animal from './Animal.svelte';
 	import db from '../../../store';
 
+	const isStillToAdopt = (element) => {
+		return element.statut === 'non adopté';
+	};
+
 	let listeAnimaux;
+	let purgedListeAnimaux = [];
 	$: {
 		db.subscribe((data) => {
 			listeAnimaux = data;
 		});
 		listeAnimaux = listeAnimaux[data.id];
+		listeAnimaux.forEach((element) => {
+			if (isStillToAdopt(element)) {
+				purgedListeAnimaux.push(element);
+			}
+		});
+		listeAnimaux = purgedListeAnimaux;
 	}
 </script>
 
