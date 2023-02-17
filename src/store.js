@@ -47,7 +47,7 @@ const db = writable({
 				"Habitué à vivre dehors et en groupe, Maxou a été secouru à la suite du décès de la dame qui le nourrissait. C'est un chat discret et timide, mais avec du temps et de la patience il saura vous faire confiance et s'épanouir. Il est ok chats. Nous recherchons pour lui une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
 			naissance: 2016,
 			sexe: 'Mâle',
-			type: 'Européen poils longs',
+			type: 'Européen à poils longs',
 			additionnalPhoto: [
 				'/chats/maxou/maxou2.jpg',
 				'/chats/maxou/maxou3.jpg',
@@ -63,7 +63,7 @@ const db = writable({
 				"Aujourd'hui très bienportant, Papili a été secouru de longues années d'errance il y a peu et est arrivé à l'association parasité, maigre et avec de gros problèmes dentaires. C'est un chat adorable qui a besoin d'être mis en confiance, mais qui devient incroyablement câlin et affectueux quand à l'aise. On lui a retiré plusieurs dents, il mange uniquement de la pâtée mais ne présente pas d'autres problèmes particulier. Il s'entend très bien avec ses congénères et cherche aujourd'hui sa famille pour la vie. Nous recherchons pour lui une famille sans enfants en bas-âge, et si extérieur, un qui soit sécurisé.",
 			naissance: 2013,
 			sexe: 'Mâle',
-			type: 'Européen poils mi-longs',
+			type: 'Européen à poils mi-longs',
 			additionnalPhoto: ['/chats/papili/papili2.jpg', '/chats/papili/papili3.JPG', '/chats/papili/papili4.JPG', '/chats/papili/papili5.jpg']
 		}
 	],
