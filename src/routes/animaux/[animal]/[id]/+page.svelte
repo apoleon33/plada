@@ -35,7 +35,7 @@
 		</div>
 	</div>
 
-	<Recommendation animal={data.animal} />
+	<Recommendation animal={data.animal} idAnimal={animal.id} />
 {/key}
 
 <style>

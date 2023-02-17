@@ -1,5 +1,6 @@
 <script>
 	export let animal = 'chats';
+	export let idAnimal = 0;
 
 	import db from '../../../../store';
 
@@ -9,7 +10,7 @@
 
 	const randomInt = (min, max) => {
 		let rand = Math.floor(Math.random() * (max - min)) + min;
-		return notInList(alreadyUsedNumber, rand) ? rand : randomInt(min, max);
+		return notInList(alreadyUsedNumber, rand) && rand !== idAnimal ? rand : randomInt(min, max);
 	};
 
 	const notInList = (list, number) => {
@@ -36,8 +37,6 @@
 		}
 		alreadyUsedNumber.push(randomNumber);
 	}
-
-	console.log(listAnimals[animal][listRandomNumbers[0]].link);
 </script>
 
 <div id="wrapper">
