@@ -52,8 +52,7 @@ const db = writable({
 				'/chats/maxou/maxou2.jpg',
 				'/chats/maxou/maxou3.jpg',
 				'/chats/maxou/maxou4.jpg',
-				'/chats/maxou/maxou5.jpg',
-				'/chats/maxou/maxou6.jpg'
+				'/chats/maxou/maxou5.jpg'
 			]
 		},
 		{
