@@ -16,13 +16,8 @@
 		db.subscribe((data) => {
 			listeAnimaux = data;
 		});
+
 		listeAnimaux = listeAnimaux[data.id];
-		listeAnimaux.forEach((element) => {
-			if (isStillToAdopt(element)) {
-				purgedListeAnimaux.push(element);
-			}
-		});
-		listeAnimaux = purgedListeAnimaux;
 	}
 </script>
 
@@ -42,8 +37,10 @@
 {#key data}
 	<div id="animalWrapper" in:fade>
 		{#if listeAnimaux.length != 0}
-			{#each listeAnimaux as { id, name, link }, i}
-				<Animal {name} lien={link} onclic="/animaux/{data.id}/{id}" />
+			{#each listeAnimaux as { id, name, link, statut }, i}
+				{#if statut === 'non adopté'}
+					<Animal {name} lien={link} onclic="/animaux/{data.id}/{id}" />
+				{/if}
 			{/each}
 		{/if}
 	</div>

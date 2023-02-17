@@ -1,6 +1,6 @@
 <script>
 	export let animal = 'chats';
-	export let idAnimal = 0;
+	// export let idAnimal = 0;
 
 	import db from '../../../../store';
 
@@ -10,7 +10,10 @@
 
 	const randomInt = (min, max) => {
 		let rand = Math.floor(Math.random() * (max - min)) + min;
-		return notInList(alreadyUsedNumber, rand) && rand !== idAnimal ? rand : randomInt(min, max);
+		// rand !== idAnimal &&
+		return notInList(alreadyUsedNumber, rand) && isStillToAdopt(listAnimals[animal][rand])
+			? rand
+			: randomInt(min, max);
 	};
 
 	const notInList = (list, number) => {
@@ -29,12 +32,11 @@
 		listAnimals = data;
 	});
 
+	console.log(listAnimals[animal].length);
 	for (let i = 0; i < 4 && i < listAnimals[animal].length; i++) {
 		randomNumber = randomInt(0, listAnimals[animal].length);
 
-		if (isStillToAdopt(listAnimals[animal][randomNumber])) {
-			listRandomNumbers.push(randomNumber);
-		}
+		listRandomNumbers.push(randomNumber);
 		alreadyUsedNumber.push(randomNumber);
 	}
 </script>
