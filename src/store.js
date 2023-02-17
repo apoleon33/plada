@@ -70,16 +70,13 @@ const db = writable({
 	chiens: [
 		{
 			id: 0,
-			name: 'Max',
-			link: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Golden_retriever_stehfoto.jpg/1200px-Golden_retriever_stehfoto.jpg',
-			description: 'Max est un chien joueur et affectueux.',
-			naissance: 2016,
-			sexe: 'Male',
-			type: 'Golden Retriever',
-			additionnalPhoto: [
-				'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Golden_retriever_stehfoto.jpg/1200px-Golden_retriever_stehfoto.jpg',
-				'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Golden_Ret	riever_Dukedestiny01_drvd.jpg/640px-Golden_Retriever_Dukedestiny01_drvd.jpg'
-			]
+			name: 'Shelby',
+			link: '/chiens/shelby/shelby.jpg',
+			description: "Shelby est une petite chienne ayant passé sa vie en vase clos avec ses humains, elle est donc très exclusive. C'est par ailleurs un amour de boule de poils, intelligente, vive et pleine d'amour à donner et à recevoir. Elle est dynamique mais sait aussi se poser, et s'adaptera aussi bien à une vie en appartement qu'en maison avec jardin (bien sécurisé!). Shelby est très douce et câline, et très proche de l'homme, elle espère activement trouver un foyer. C'est un chien propre, rien à signaler niveau santé il faudra juste qu'elle soit le seul animal du foyer! ",
+			naissance: 2012,
+			sexe: 'Femelle',
+			type: 'Croisé Bouledogue/Chihuahua',
+			additionnalPhoto: ['/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby3.jpg', '/chiens/shelby/shelby4.jpg', '/chiens/shelby/shelby5.jpg']
 		},
 		{
 			id: 1,
