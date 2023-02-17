@@ -11,7 +11,8 @@ const db = writable({
 			naissance: 2020,
 			sexe: 'Mâle',
 			type: 'Européen',
-			additionnalPhoto: ['/chats/chamallow/chamallow2.jpg', '/chats/chamallow/chamallou.jpg']
+			additionnalPhoto: ['/chats/chamallow/chamallow2.jpg', '/chats/chamallow/chamallou.jpg'],
+			statut: 'non adopté'
 		},
 		{
 			id: 1,
@@ -26,7 +27,8 @@ const db = writable({
 				'/chats/zoya/Zoya (2).PNG',
 				'/chats/zoya/zoya3.jpg',
 				'/chats/zoya/zoya4.jpg'
-			]
+			],
+			statut: 'non adopté'
 		},
 		{
 			id: 2,
@@ -37,7 +39,8 @@ const db = writable({
 			naissance: 2019,
 			sexe: 'Mâle',
 			type: 'Main Coon',
-			additionnalPhoto: ['/chats/joy/Joy (2).PNG', '/chats/joy/joy2.jpg', '/chats/joy/joy3.jpg']
+			additionnalPhoto: ['/chats/joy/Joy (2).PNG', '/chats/joy/joy2.jpg', '/chats/joy/joy3.jpg'],
+			statut: 'non adopté'
 		},
 		{
 			id: 3,
@@ -53,7 +56,8 @@ const db = writable({
 				'/chats/maxou/maxou3.jpg',
 				'/chats/maxou/maxou4.jpg',
 				'/chats/maxou/maxou5.jpg'
-			]
+			],
+			statut: 'non adopté'
 		},
 		{
 			id: 4,
@@ -64,7 +68,13 @@ const db = writable({
 			naissance: 2013,
 			sexe: 'Mâle',
 			type: 'Européen à poils mi-longs',
-			additionnalPhoto: ['/chats/papili/papili2.jpg', '/chats/papili/papili3.JPG', '/chats/papili/papili4.JPG', '/chats/papili/papili5.jpg']
+			additionnalPhoto: [
+				'/chats/papili/papili2.jpg',
+				'/chats/papili/papili3.JPG',
+				'/chats/papili/papili4.JPG',
+				'/chats/papili/papili5.jpg'
+			],
+			statut: 'non adopté'
 		}
 	],
 	chiens: [
@@ -72,11 +82,18 @@ const db = writable({
 			id: 0,
 			name: 'Shelby',
 			link: '/chiens/shelby/shelby.jpg',
-			description: "Shelby est une petite chienne ayant passé sa vie en vase clos avec ses humains, elle est donc très exclusive. C'est par ailleurs un amour de boule de poils, intelligente, vive et pleine d'amour à donner et à recevoir. Elle est dynamique mais sait aussi se poser, et s'adaptera aussi bien à une vie en appartement qu'en maison avec jardin (bien sécurisé!). Shelby est très douce et câline, et très proche de l'homme, elle espère activement trouver un foyer. C'est un chien propre, rien à signaler niveau santé il faudra juste qu'elle soit le seul animal du foyer! ",
+			description:
+				"Shelby est une petite chienne ayant passé sa vie en vase clos avec ses humains, elle est donc très exclusive. C'est par ailleurs un amour de boule de poils, intelligente, vive et pleine d'amour à donner et à recevoir. Elle est dynamique mais sait aussi se poser, et s'adaptera aussi bien à une vie en appartement qu'en maison avec jardin (bien sécurisé!). Shelby est très douce et câline, et très proche de l'homme, elle espère activement trouver un foyer. C'est un chien propre, rien à signaler niveau santé il faudra juste qu'elle soit le seul animal du foyer! ",
 			naissance: 2012,
 			sexe: 'Femelle',
 			type: 'Croisé Bouledogue/Chihuahua',
-			additionnalPhoto: ['/chiens/shelby/shelby2.jpg', '/chiens/shelby/shelby3.jpg', '/chiens/shelby/shelby4.jpg', '/chiens/shelby/shelby5.jpg']
+			additionnalPhoto: [
+				'/chiens/shelby/shelby2.jpg',
+				'/chiens/shelby/shelby3.jpg',
+				'/chiens/shelby/shelby4.jpg',
+				'/chiens/shelby/shelby5.jpg'
+			],
+			statut: 'non adopté'
 		},
 		{
 			id: 1,
@@ -89,7 +106,8 @@ const db = writable({
 			additionnalPhoto: [
 				'https://img2.storyblok.com/f/83829/1200x628/1b46b4ef6e/chien-berger-allemand.jpg',
 				'https://img2.storyblok.com/f/83829/1200x628/1b46b4ef6e/chien-berger-allemand.jpg'
-			]
+			],
+			statut: 'non adopté'
 		},
 		{
 			id: 2,
@@ -102,7 +120,8 @@ const db = writable({
 			additionnalPhoto: [
 				'https://i.f1g.fr/media/cms/orig/2022/01/28/a80ab1d3bff3218f5b9c883b078d2e76bdca16b1e85f85cd86715ffc937ca083.jpg',
 				'https://jardinage.lemonde.fr/images/dossiers/2019-04/bulldog-anglais-133058.jpg'
-			]
+			],
+			statut: 'non adopté'
 		}
 	],
 	autres: []
