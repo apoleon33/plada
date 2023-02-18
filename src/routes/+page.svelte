@@ -36,6 +36,8 @@
 	</div>
 </div>
 
+<a id="admin" href="/admin">admin</a>
+
 <style>
 	.text {
 		font-size: 150%;
@@ -78,5 +80,11 @@
 	#third-image {
 		grid-column: 1;
 		grid-row: 3;
+	}
+
+	#admin {
+		padding: 0.5em;
+		position: sticky;
+		top: 20px;
 	}
 </style>
