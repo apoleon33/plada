@@ -2,18 +2,15 @@
 	export let data;
 
 	import { fade } from 'svelte/transition';
-	import db from '../../../../store';
 	import Interested from './Interested.svelte';
 	import ImageSwitcher from './ImageSwitcher.svelte';
 	import Recommendation from './Recommendation.svelte';
 
 	let bigImage = 0;
-	let listAnimals, animal, imgToSend;
+	let animal, imgToSend, otherAnimals;
 	$: {
-		db.subscribe((data) => {
-			listAnimals = data;
-		});
-		animal = listAnimals[data.animal][data.id];
+		animal = data.donnee;
+		otherAnimals = data.recommendation;
 
 		imgToSend = [animal.link];
 		imgToSend = imgToSend.concat(animal.additionnalPhoto);
@@ -35,7 +32,7 @@
 		</div>
 	</div>
 
-	<Recommendation animal={data.animal} idAnimal={animal.id} />
+	<Recommendation animal={data.animal} idAnimal={animal.id} listOtherAnimals={otherAnimals} />
 {/key}
 
 <style>

@@ -1,9 +1,9 @@
 <script>
 	export let animal = 'chats';
 	export let idAnimal = 0;
+	export let listOtherAnimals;
 
-	import db from '../../../../store';
-
+	console.log(listOtherAnimals);
 	const isStillToAdopt = (element) => {
 		return element.statut === 'non adopté';
 	};
@@ -13,7 +13,7 @@
 		//
 		return notInList(alreadyUsedNumber, rand) &&
 			rand !== idAnimal &&
-			isStillToAdopt(listAnimals[animal][rand])
+			isStillToAdopt(listAnimals[rand])
 			? rand
 			: randomInt(min, max);
 	};
@@ -30,13 +30,11 @@
 	let listAnimals, randomNumber;
 	let alreadyUsedNumber = [];
 	let listRandomNumbers = [];
-	db.subscribe((data) => {
-		listAnimals = data;
-	});
 
-	console.log(listAnimals[animal].length);
-	for (let i = 0; i < 4 && i < listAnimals[animal].length - 1; i++) {
-		randomNumber = randomInt(0, listAnimals[animal].length);
+	listAnimals = listOtherAnimals;
+
+	for (let i = 0; i < 4 && i < listAnimals.length - 1; i++) {
+		randomNumber = randomInt(0, listAnimals.length);
 
 		listRandomNumbers.push(randomNumber);
 		alreadyUsedNumber.push(randomNumber);
@@ -47,15 +45,11 @@
 	<div id="imgWrapper">
 		{#each listRandomNumbers as id}
 			<div class="centering">
-				<a href="/animaux/{animal}/{listAnimals[animal][id].id}">
-					<img
-						alt="une recommendation d'autre chat"
-						src={listAnimals[animal][id].link}
-						class="image"
-					/>
+				<a href="/animaux/{animal}/{listAnimals[id].id}">
+					<img alt="une recommendation d'autre chat" src={listAnimals[id].link} class="image" />
 				</a>
-				<a href="/animaux/{animal}/{listAnimals[animal][id].id}">
-					<h3>{listAnimals[animal][id].name}</h3>
+				<a href="/animaux/{animal}/{listAnimals[id].id}">
+					<h3>{listAnimals[id].name}</h3>
 				</a>
 			</div>
 		{/each}

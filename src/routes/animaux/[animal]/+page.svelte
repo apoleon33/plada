@@ -4,7 +4,6 @@
 	import { fade } from 'svelte/transition';
 
 	import Animal from './Animal.svelte';
-	import db from '../../../store';
 
 	const isStillToAdopt = (element) => {
 		return element.statut === 'non adopté';
@@ -13,11 +12,8 @@
 	let listeAnimaux;
 	let purgedListeAnimaux = [];
 	$: {
-		db.subscribe((data) => {
-			listeAnimaux = data;
-		});
-
-		listeAnimaux = listeAnimaux[data.id];
+		listeAnimaux = data.db;
+		console.log(data.db);
 	}
 </script>
 
