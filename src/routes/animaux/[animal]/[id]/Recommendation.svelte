@@ -2,8 +2,9 @@
 	export let animal = 'chats';
 	export let idAnimal = 0;
 	export let listOtherAnimals;
+	export let bigImage = 0;
+	export let listImages = [];
 
-	console.log(listOtherAnimals);
 	const isStillToAdopt = (element) => {
 		return element.statut === 'non adopté';
 	};
@@ -44,7 +45,13 @@
 <div id="wrapper">
 	<div id="imgWrapper">
 		{#each listRandomNumbers as id}
-			<div class="centering">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<div
+				class="centering"
+				on:click={() => {
+					bigImage = 0;
+				}}
+			>
 				<a href="/animaux/{animal}/{listAnimals[id].id}">
 					<img alt="une recommendation d'autre chat" src={listAnimals[id].link} class="image" />
 				</a>

@@ -1,5 +1,5 @@
 <script>
-	export let listImage = '';
+	export let listImage = [];
 	export let bigImage = 0;
 </script>
 
@@ -12,6 +12,7 @@
 			}}
 			src={lien}
 			alt="une autre du chat"
+			class:selected={bigImage === i}
 		/>
 	{/each}
 </div>
@@ -30,6 +31,10 @@
 	img:hover {
 		filter: brightness(100%);
 		cursor: pointer;
+	}
+
+	.selected {
+		filter: brightness(100%);
 	}
 
 	#wrapper {
