@@ -45,6 +45,7 @@
 	img {
 		max-width: 600px;
 		border-radius: 10px;
+		max-height: 600px;
 	}
 
 	.text {
