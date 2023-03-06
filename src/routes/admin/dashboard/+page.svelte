@@ -1,10 +1,57 @@
 <script>
+	import Animal from './Animal.svelte';
+
 	export let data;
 	export let form;
+
+	const chats = data.db.chats;
+	const chiens = data.db.chiens;
+	const autres = data.db.autres;
+
+	const listImageChats = data.imageChats;
+	const listImageChiens = data.imageChiens;
 </script>
 
 {#if form?.success}
-	<p>Successfully logged in!</p>
+	<div id="wrapper">
+		<div class="animalAndTitleWrapper">
+			<h1>Chats:</h1>
+			<div class="animalWrapper">
+				{#each chats as chat, i}
+					<Animal datas={chat} lien={listImageChats[i]} specie="chats" />
+				{/each}
+			</div>
+		</div>
+		<div class="animalAndTitleWrapper">
+			<h1>chiens:</h1>
+			<div class="animalWrapper">
+				{#each chiens as chien, y}
+					<Animal datas={chien} lien={listImageChiens[y]} specie="chiens" />
+				{/each}
+			</div>
+		</div>
+	</div>
 {:else}
-	<p>wrong password!</p>
+	<p>wrong password!, <a href="/admin">retry</a></p>
 {/if}
+
+<style>
+	.animalAndTitleWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		border-bottom: 3px var(--secondary-color) solid;
+		padding-bottom: 1em;
+	}
+
+	.animalWrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 1em;
+	}
+
+	#wrapper {
+		margin: 1em;
+	}
+</style>

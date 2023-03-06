@@ -1,7 +1,7 @@
 import { getFromDatabase, getUrl } from '$lib/database.server.js';
-let database = await getFromDatabase('animaux');
 
 export async function load({ params }) {
+	let database = await getFromDatabase('animaux');
 	let listImagePromises = [];
 	let listImageAnimalsPromises = [];
 	let listImage = [];
