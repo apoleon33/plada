@@ -44,7 +44,7 @@
 
 <div id="wrapper">
 	<div id="imgWrapper">
-		{#each listRandomNumbers as id}
+		{#each listRandomNumbers as id, i}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
 				class="centering"
@@ -53,7 +53,7 @@
 				}}
 			>
 				<a href="/animaux/{animal}/{listAnimals[id].id}">
-					<img alt="une recommendation d'autre chat" src={listAnimals[id].link} class="image" />
+					<img alt="une recommendation d'autre chat" src={listImages[id]} class="image" />
 				</a>
 				<a href="/animaux/{animal}/{listAnimals[id].id}">
 					<h3>{listAnimals[id].name}</h3>

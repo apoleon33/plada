@@ -20,7 +20,7 @@
 <div id="empty" />
 {#key (animal, data)}
 	<div id="wrapper" in:fade>
-		<div id="imgWrapper"><img alt={animal.name} src={imgToSend[bigImage]} /></div>
+		<div id="imgWrapper"><img alt={animal.name} src={data.images[bigImage]} /></div>
 		<div id="textWrapper">
 			<h1 class="text" id="name">{animal.name}</h1>
 			<h2 class="text">{animal.sexe}</h2>
@@ -28,11 +28,17 @@
 			<h2 class="text">Né(e) en {animal.naissance}</h2>
 			<h3 class="text" id="description">{animal.description}</h3>
 			<Interested name={animal.name} />
-			<ImageSwitcher listImage={imgToSend} bind:bigImage />
+			<ImageSwitcher listImage={data.images} bind:bigImage />
 		</div>
 	</div>
 
-	<Recommendation animal={data.animal} idAnimal={animal.id} listOtherAnimals={otherAnimals} />
+	<Recommendation
+		animal={data.animal}
+		idAnimal={animal.id}
+		listOtherAnimals={otherAnimals}
+		listImages={data.otherImages}
+		bind:bigImage
+	/>
 {/key}
 
 <style>

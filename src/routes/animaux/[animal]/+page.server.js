@@ -1,8 +1,20 @@
-import { getFromDatabase } from '$lib/database.server.js';
+import { getFromDatabase, getUrl } from '$lib/database.server.js';
 let database = await getFromDatabase('animaux');
-export function load({ params }) {
+// let imageIcon = await getUrl(`${params.animal}`);
+export async function load({ params }) {
+	let listImagePromises = [];
+	let listImage = [];
+	let db = database[0][params.animal];
+
+	for (let i = 0; i < db.length; i++) {
+		listImagePromises.push(getUrl(db[i].link));
+	}
+
+	listImage = await Promise.all(listImagePromises);
+
 	return {
 		id: params.animal,
-		db: database[0][params.animal]
+		db: db,
+		listImage: listImage
 	};
 }

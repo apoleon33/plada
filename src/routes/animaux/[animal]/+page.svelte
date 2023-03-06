@@ -10,10 +10,8 @@
 	};
 
 	let listeAnimaux;
-	let purgedListeAnimaux = [];
 	$: {
 		listeAnimaux = data.db;
-		console.log(data.db);
 	}
 </script>
 
@@ -35,7 +33,7 @@
 		{#if listeAnimaux.length != 0}
 			{#each listeAnimaux as { id, name, link, statut }, i}
 				{#if statut === 'non adopté'}
-					<Animal {name} lien={link} onclic="/animaux/{data.id}/{id}" />
+					<Animal {name} lien={data.listImage[i]} onclic="/animaux/{data.id}/{id}" />
 				{/if}
 			{/each}
 		{/if}
