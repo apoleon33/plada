@@ -55,8 +55,10 @@
 				<div id="statutWrapper" class="propertyWrapper">
 					<label for="statut">Statut</label>
 					<select name="statut" id="statut">
-						<option value="non adopté">Non Adopté(e)</option>
-						<option value="adopté">Adopté(e)</option>
+						<option value="non adopté" selected={animalDatas.statut === 'non adopté'}
+							>Non Adopté(e)</option
+						>
+						<option value="adopté" selected={animalDatas.statut === 'adopté'}>Adopté(e)</option>
 					</select>
 				</div>
 			</div>
