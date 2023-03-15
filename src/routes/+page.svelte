@@ -7,7 +7,7 @@
 
 <Summary />
 <a href="/" id="logoWrapper">
-	<img src="/logo.jpg" alt="association logo" in:fly={{ y: -100 }} /></a
+	<img src="/logo.png" alt="association logo" in:fly={{ y: -100 }} /></a
 >
 <div id="earWrapper">
 	<div id="leftEar" class="earWrapper"><Ear /></div>
