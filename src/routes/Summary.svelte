@@ -1,9 +1,3 @@
-<script>
-	import '../style.css';
-</script>
-
-<a href="/" id="logoWrapper"><img src="/logo.jpg" alt="association logo" /></a>
-
 <div id="wrapper">
 	<div class="dropdown">
 		<span> <a href="/" class="text">L'association </a></span>
@@ -13,7 +7,6 @@
 			<a href="/association/archives" class="text option-menu"> Archives </a>
 		</div>
 	</div>
-
 	<div class="dropdown">
 		<span> <a href="/" class="text">Adopter </a></span>
 		<div class="dropdown-content" id="dropdown-adopter">
@@ -32,13 +25,8 @@
 		</div>
 	</div>
 </div>
-<slot />
 
 <style>
-	img {
-		width: 200px;
-	}
-
 	a {
 		text-decoration: none;
 		color: unset;
@@ -47,12 +35,6 @@
 	span:hover {
 		color: #fe0094;
 		transition: 200ms;
-	}
-
-	#logoWrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	#wrapper {
@@ -64,7 +46,7 @@
 		margin: 0;
 		padding-bottom: 1em;
 
-		border-bottom: 1px var(--secondary-color) solid;
+		grid-column: 3;
 	}
 
 	.text {
@@ -91,7 +73,6 @@
 		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 		z-index: 1;
 	}
-
 	/* Links inside the dropdown */
 	.dropdown-content a {
 		color: black;

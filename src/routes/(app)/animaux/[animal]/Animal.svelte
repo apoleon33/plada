@@ -1,11 +1,12 @@
 <script>
+	import { fly } from 'svelte/transition';
 	export let name = '';
 	export let lien =
 		'https://www.zooplus.fr/magazine/wp-content/uploads/2019/06/comprendre-le-langage-des-chats.jpg';
 	export let onclic = '/';
 </script>
 
-<div id="wrapper">
+<div id="wrapper" in:fly={{ y: 300, duration: 500 }}>
 	<a href={onclic}><img alt="un chat" src={lien} /></a>
 	<h1>{name}</h1>
 </div>

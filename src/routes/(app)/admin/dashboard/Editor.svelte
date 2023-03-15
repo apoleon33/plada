@@ -42,8 +42,8 @@
 				<div id="sexeWrapper" class="propertyWrapper">
 					<label for="sexe">Sexe</label>
 					<select name="sexe" id="sexe">
-						<option value="Male">Male</option>
-						<option value="Femelle">Femelle</option>
+						<option value="Male" selected={animalDatas.sexe === 'Male'}>Male</option>
+						<option value="Femelle" selected={animalDatas.sexe === 'Femelle'}>Femelle</option>
 					</select>
 				</div>
 
@@ -79,18 +79,69 @@
 				<input type="password" name="password" id="password" />
 			</div>
 			<div id="submitWrapper">
-				<input type="submit" value="Submit" />
+				<input type="submit" value="Submit" id="submit" />
 			</div>
 		</form>
 	</div>
 </div>
 
 <style>
+	button {
+		all: unset;
+		padding: 5px;
+		border-radius: 5px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type='number'] {
+		appearance: textfield;
+	}
+
+	input,
+	select {
+		all: unset;
+		border-bottom: 1px solid var(--secondary-text-color);
+		padding: 5px;
+	}
+
+	input:focus,
+	select:focus {
+		border: 1px solid var(--secondary-text-color);
+		border-radius: 5px;
+		transition: 600ms;
+	}
+
+	select {
+		appearance: button;
+	}
+
+	select::marker {
+		display: block;
+	}
+
 	img {
 		max-width: 15vw;
 		max-height: 15vw;
 		object-fit: cover;
 		border-radius: 10px;
+	}
+
+	textarea {
+		border-radius: 5px;
+		background-color: var(--secondary-color);
+		border: 1px solid var(--main-text-color);
 	}
 
 	.propertyWrapper {
@@ -134,8 +185,20 @@
 		gap: 1em;
 	}
 
-	#endPageButtons {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+	#submitWrapper {
+		padding: 10px;
+	}
+
+	#submit {
+		border: 1px solid var(--secondary-text-color);
+		border-radius: 5px;
+	}
+
+	#submit:hover,
+	button:hover {
+		cursor: pointer;
+		color: var(--bg-color);
+		background-color: var(--secondary-text-color);
+		transition: 200ms;
 	}
 </style>

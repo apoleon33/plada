@@ -4,16 +4,33 @@
 	import { fade } from 'svelte/transition';
 
 	import Animal from './Animal.svelte';
+	import Filter from './Filter.svelte';
+
+	const isInCriteria = (criteria, sexe, naissance, type) => {
+		if (!((criteria.sexe[0] && sexe === 'Male') || (criteria.sexe[1] && sexe === 'Femelle'))) {
+			return false;
+		}
+		return true;
+	};
 
 	const isStillToAdopt = (element) => {
 		return element.statut === 'non adopté';
 	};
 
 	let listeAnimaux;
+	let criteria = {
+		sexe: [true, true],
+		naissance: 0,
+		type: ''
+	};
+
 	$: {
 		listeAnimaux = data.db;
+		console.log(criteria);
 	}
 </script>
+
+<Filter bind:criteria />
 
 <div id="description">
 	<h1>
@@ -31,9 +48,11 @@
 {#key data}
 	<div id="animalWrapper" in:fade>
 		{#if listeAnimaux.length != 0}
-			{#each listeAnimaux as { id, name, link, statut }, i}
+			{#each listeAnimaux as { id, name, statut, sexe, naissance, type }, i}
 				{#if statut === 'non adopté'}
-					<Animal {name} lien={data.listImage[i]} onclic="/animaux/{data.id}/{id}" />
+					{#if isInCriteria(criteria, sexe, naissance, type)}
+						<Animal {name} lien={data.listImage[i]} onclic="/animaux/{data.id}/{id}" />
+					{/if}
 				{/if}
 			{/each}
 		{/if}

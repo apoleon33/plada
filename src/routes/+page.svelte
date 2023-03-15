@@ -1,7 +1,23 @@
+<script>
+	import { fly } from 'svelte/transition';
+	import Ear from './Ear.svelte';
+	import Summary from './Summary.svelte';
+	import '../style.css';
+</script>
+
+<Summary />
+<a href="/" id="logoWrapper">
+	<img src="/logo.jpg" alt="association logo" in:fly={{ y: -100 }} /></a
+>
+<div id="earWrapper">
+	<div id="leftEar" class="earWrapper"><Ear /></div>
+	<div id="rightEar" class="earWrapper"><Ear xIntro={300} /></div>
+</div>
+
 <div id="wrapper">
 	<div id="content-left">
 		<div id="notre-association">
-			<h1>Notre association</h1>
+			<h1 class="text">Notre association</h1>
 			<p class="text">
 				"Notre petite association loi 1901 basée en Gironde (33) prend en charge principalement les
 				chiens et les chats en situation de détresse et met en oeuvre toutes les actions
@@ -19,29 +35,43 @@
 			</p>
 		</div>
 	</div>
-
-	<div id="content-right">
-		<div id="portfolio">
-			<img alt="première du portfolio" id="first-image" src="https://picsum.photos/300/" />
-			<img alt="seconde du portfolio" id="second-image" src="https://picsum.photos/400/300" />
-			<img alt="troisième du portfolio" id="third-image" src="https://picsum.photos/300/" />
-		</div>
-	</div>
-
-	<div id="equipe">
-		<h1>L'équipe</h1>
-		<li>A</li>
-		<li>B</li>
-		<li>C</li>
-	</div>
 </div>
 
-<a id="admin" href="/admin">admin</a>
-
 <style>
+	img {
+		width: 30em;
+	}
+
+	p {
+		font-size: 125%;
+	}
+	.earWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.text {
-		font-size: 150%;
-		text-align: justify;
+		text-align: center;
+	}
+
+	#logoWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#leftEar {
+		grid-column: 2;
+	}
+
+	#rightEar {
+		grid-column: 4;
+	}
+
+	#earWrapper {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
 	}
 
 	#wrapper {
@@ -50,41 +80,12 @@
 		justify-content: center;
 		align-items: center;
 		gap: 5%;
+
+		background-color: var(--secondary-color);
+		height: 50vh;
 	}
 
 	#content-left {
 		width: 50%;
-	}
-
-	#content-right {
-		width: 40%;
-	}
-
-	#portfolio {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 5%;
-		padding: 1em 0 1em 0;
-	}
-
-	#first-image {
-		grid-column: 1;
-		grid-row: 1;
-	}
-
-	#second-image {
-		grid-column: 2;
-		grid-row: 2;
-	}
-
-	#third-image {
-		grid-column: 1;
-		grid-row: 3;
-	}
-
-	#admin {
-		padding: 0.5em;
-		position: sticky;
-		top: 20px;
 	}
 </style>
