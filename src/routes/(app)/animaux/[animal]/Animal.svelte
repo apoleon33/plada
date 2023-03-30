@@ -6,7 +6,7 @@
 	export let onclic = '/';
 </script>
 
-<div id="wrapper" in:fly={{ y: 300, duration: 500 }}>
+<div id="wrapper" in:fly={{ y: 300, duration: 500 }} out:fly={{ y: 300, duration: 200 }}>
 	<a href={onclic}><img alt="un chat" src={lien} /></a>
 	<h1>{name}</h1>
 </div>

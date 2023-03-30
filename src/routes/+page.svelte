@@ -5,6 +5,10 @@
 	import '../style.css';
 </script>
 
+<svelte:head>
+	<title>Accueil</title>
+</svelte:head>
+
 <Summary />
 <a href="/" id="logoWrapper">
 	<img src="/logo.png" alt="association logo" in:fly={{ y: -100 }} /></a

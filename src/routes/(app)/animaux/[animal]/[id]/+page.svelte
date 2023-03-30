@@ -17,6 +17,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{animal.name}</title>
+</svelte:head>
+
 <div id="empty" />
 {#key (animal, data)}
 	<div id="wrapper" in:fade>
