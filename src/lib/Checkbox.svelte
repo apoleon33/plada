@@ -7,6 +7,10 @@
 <input type="checkbox" id="checkbox" bind:checked />
 
 <style>
+	label {
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
 	#checkbox {
 		width: 20px;
 		height: 20px;

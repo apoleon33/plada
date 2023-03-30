@@ -1,7 +1,6 @@
 <script>
 	import Checkbox from '$lib/Checkbox.svelte';
 	import Slider from '$lib/Slider.svelte';
-	import { bind } from 'svelte/internal';
 
 	export let criteria = {
 		sexe: [true, true],
@@ -32,7 +31,7 @@
 <div id="wrapper">
 	<h3>Filtrer par:</h3>
 	<div>
-		<h4>Sexe</h4>
+		<h4 id="sexeLabel">Sexe</h4>
 		<Checkbox bind:checked={criteria.sexe[0]} label="Male" />
 
 		<Checkbox bind:checked={criteria.sexe[1]} label="Femelle" />
@@ -49,8 +48,27 @@
 </div>
 
 <style>
+	h3 {
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+
+	h4 {
+		margin-bottom: 0px;
+		margin-top: 20px;
+	}
+
+	h5 {
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+
 	#wrapper {
 		padding: 1em;
+		height: fit-content;
+		max-width: 12vw;
+		border: 2.5px solid var(--secondary-color);
+		border-radius: 10px;
 	}
 
 	#sliderLabelWrapper {
@@ -58,10 +76,15 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		gap: 15px;
 		max-width: 25vh;
 	}
 
 	#sliderWrapper {
 		width: 150px;
+	}
+
+	#sexeLabel {
+		margin: 0;
 	}
 </style>
