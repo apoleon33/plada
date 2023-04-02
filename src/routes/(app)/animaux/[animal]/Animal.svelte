@@ -10,13 +10,14 @@
 	export let sexe = 'Male';
 	export let dateDeNaissance = 2016;
 
-	console.log(sexe);
-
 	const today = new Date();
 	const year = today.getFullYear();
 	let age = year - dateDeNaissance;
 
-	let sentence = age + ' ans,';
+	let sentence = age + ' an';
+	sentence += age === 1 ? '' : 's';
+	sentence += ',';
+
 	let hoverStatus = false;
 
 	const handleOnMouseOver = () => {
@@ -39,7 +40,7 @@
 	<div class="container" id="informationWrapper">
 		<div class="content"><h1 id="name" class="text">{name}</h1></div>
 
-		<div class="dummy" class:hovered={hoverStatus}>
+		<div class="dummy">
 			{#if hoverStatus}
 				<h2
 					id="sexe"
@@ -69,29 +70,6 @@
 
 	a {
 		margin: 0;
-	}
-
-	.container {
-		display: flex;
-		justify-content: center;
-	}
-
-	.content {
-		flex: 1;
-		max-width: fit-content;
-	}
-
-	.dummy {
-		flex: 0;
-		transition: flex 600ms;
-
-		display: flex;
-		flex-direction: row;
-		justify-content: end;
-	}
-
-	.hovered {
-		flex: auto;
 	}
 
 	.text {
