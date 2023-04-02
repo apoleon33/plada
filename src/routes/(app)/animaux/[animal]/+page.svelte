@@ -66,7 +66,13 @@
 				{#each listeAnimaux as { id, name, statut, sexe, naissance, type }, i}
 					{#if statut === 'non adopté'}
 						{#if isInCriteria(criteria, sexe, naissance, type)}
-							<Animal {name} lien={data.listImage[i]} onclic="/animaux/{data.id}/{id}" />
+							<Animal
+								{name}
+								lien={data.listImage[i]}
+								onclic="/animaux/{data.id}/{id}"
+								{sexe}
+								dateDeNaissance={naissance}
+							/>
 						{/if}
 					{/if}
 				{/each}
