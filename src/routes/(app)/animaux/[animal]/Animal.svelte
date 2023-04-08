@@ -17,31 +17,19 @@
 	let sentence = age + ' an';
 	sentence += age === 1 ? '' : 's';
 	sentence += ',';
-
-	let hoverStatus = false;
-
-	const handleOnMouseOver = () => {
-		hoverStatus = true;
-	};
-	const handleOnMouseOut = () => {
-		hoverStatus = false;
-	};
 </script>
 
-<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-<div
-	id="wrapper"
-	in:fly={{ y: 300, duration: 500 }}
-	out:fly={{ y: 300, duration: 200 }}
-	on:mouseover={handleOnMouseOver}
-	on:mouseout={handleOnMouseOut}
->
-	<a href={onclic}><img alt="un chat" src={lien} /></a>
-	<div class="container" id="informationWrapper">
-		<div class="content"><h1 id="name" class="text">{name}</h1></div>
+<div id="wrapper" in:fly={{ y: 300, duration: 500 }} out:fly={{ y: 300, duration: 200 }}>
+	<a href={onclic}>
+		<div id="imgWrapper">
+			<img alt="un chat" src={lien} />
+		</div>
+	</a>
+	<a href={onclic}>
+		<div class="container" id="informationWrapper">
+			<div class="content"><h1 id="name" class="text">{name}</h1></div>
 
-		<div class="dummy">
-			{#if hoverStatus}
+			<div class="dummy">
 				<h2
 					id="sexe"
 					class="text"
@@ -55,21 +43,37 @@
 						<Male />
 					{/if}
 				</h2>
-			{/if}
+			</div>
 		</div>
-	</div>
+	</a>
 </div>
 
 <style>
 	img {
-		object-fit: cover;
 		width: 500px;
 		height: 333px;
 		border-radius: 15px 15px 0 0;
+		object-fit: cover;
+		overflow: hidden;
+		transform-origin: center center;
+	}
+
+	img:hover {
+		transition: 0.2s ease;
+		width: 525px;
+		height: 350px;
 	}
 
 	a {
 		margin: 0;
+		all: unset;
+	}
+
+	a:hover {
+		cursor: pointer;
+		/* drop-shadow(offset-x offset-y blur-radius color) */
+		filter: drop-shadow(0px -5px 3px rgba(0, 0, 0, 0.128));
+		transition: filter 0.15s ease;
 	}
 
 	.text {
@@ -77,6 +81,14 @@
 		margin: 0px 15px 0px 15px;
 		text-align: center;
 		white-space: nowrap;
+	}
+
+	#imgWrapper {
+		width: 500px;
+		height: 333px;
+		object-fit: cover;
+		overflow: hidden;
+		border-radius: 15px 15px 0 0;
 	}
 
 	#name {
