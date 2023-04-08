@@ -4,19 +4,6 @@
 	import { fade } from 'svelte/transition';
 
 	import Animal from './Animal.svelte';
-	import Filter from './Filter.svelte';
-
-	const isInCriteria = (criteria, sexe, naissance, type) => {
-		if (!((criteria.sexe[0] && sexe === 'Male') || (criteria.sexe[1] && sexe === 'Femelle'))) {
-			return false;
-		}
-
-		if (!(criteria.naissance[0] <= naissance && criteria.naissance[1] >= naissance)) {
-			return false;
-		}
-
-		return true;
-	};
 
 	const isStillToAdopt = (element) => {
 		return element.statut === 'non adopté';
@@ -59,25 +46,20 @@
 	</h1>
 </div>
 {#key data}
-	<div id="filterAndAnimalsWrapper">
-		<Filter bind:criteria />
-		<div id="animalWrapper" in:fade>
-			{#if listeAnimaux.length != 0}
-				{#each listeAnimaux as { id, name, statut, sexe, naissance, type }, i}
-					{#if statut === 'non adopté'}
-						{#if isInCriteria(criteria, sexe, naissance, type)}
-							<Animal
-								{name}
-								lien={data.listImage[i]}
-								onclic="/animaux/{data.id}/{id}"
-								{sexe}
-								dateDeNaissance={naissance}
-							/>
-						{/if}
-					{/if}
-				{/each}
-			{/if}
-		</div>
+	<div id="animalWrapper" in:fade>
+		{#if listeAnimaux.length != 0}
+			{#each listeAnimaux as { id, name, statut, sexe, naissance }, i}
+				{#if statut === 'non adopté'}
+					<Animal
+						{name}
+						lien={data.listImage[i]}
+						onclic="/animaux/{data.id}/{id}"
+						{sexe}
+						dateDeNaissance={naissance}
+					/>
+				{/if}
+			{/each}
+		{/if}
 	</div>
 {/key}
 
@@ -88,13 +70,6 @@
 		align-items: center;
 
 		padding: 2em;
-	}
-
-	#filterAndAnimalsWrapper {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		padding: 1em;
-		gap: 10px;
 	}
 
 	#animalWrapper {
