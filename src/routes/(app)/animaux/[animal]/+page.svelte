@@ -5,20 +5,10 @@
 
 	import Animal from './Animal.svelte';
 
-	const isStillToAdopt = (element) => {
-		return element.statut === 'non adopté';
-	};
-
 	let listeAnimaux;
-	let criteria = {
-		sexe: [true, true],
-		naissance: [0, 0],
-		type: ''
-	};
 
 	$: {
 		listeAnimaux = data.db;
-		console.log(criteria);
 	}
 </script>
 
