@@ -26,12 +26,26 @@
 	<div id="wrapper" in:fade>
 		<div id="imgWrapper"><img alt={animal.name} src={data.images[bigImage]} /></div>
 		<div id="textWrapper">
-			<h1 class="text" id="name">{animal.name}</h1>
+			<div id="nameAndAdoptedWrapper">
+				<h1 class="text" id="name">{animal.name}</h1>
+				<h2
+					id="adoptedStatus"
+					class="text"
+					class:adopted={animal.statut === 'adopté'}
+					class:notAdopted={animal.statut !== 'adopté'}
+				>
+					{animal.statut}
+				</h2>
+			</div>
 			<h2 class="text">{animal.sexe}</h2>
 			<h2 class="text">{animal.type}</h2>
 			<h2 class="text">Né(e) en {animal.naissance}</h2>
 			<h3 class="text" id="description">{animal.description}</h3>
-			<Interested name={animal.name} />
+			{#if animal.statut !== 'adopté'}
+				<Interested name={animal.name} />
+			{:else}
+				<br />
+			{/if}
 			<ImageSwitcher listImage={data.images} bind:bigImage />
 		</div>
 	</div>
@@ -56,6 +70,14 @@
 		margin: 0;
 	}
 
+	.adopted {
+		color: #40a02b;
+	}
+
+	.notAdopted {
+		color: #d20f39;
+	}
+
 	#imgWrapper {
 		display: flex;
 		flex-direction: column;
@@ -76,6 +98,13 @@
 
 	#name {
 		margin-bottom: 0.25em;
+	}
+
+	#nameAndAdoptedWrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	#description {
