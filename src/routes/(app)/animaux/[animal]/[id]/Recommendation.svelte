@@ -52,7 +52,7 @@
 					bigImage = 0;
 				}}
 			>
-				<a href="/animaux/{animal}/{listAnimals[id].id}">
+				<a href="/animaux/{animal}/{listAnimals[id].id}" id="imgWrapperA">
 					<img alt="une recommendation d'autre chat" src={listImages[id]} class="image" />
 				</a>
 				<a href="/animaux/{animal}/{listAnimals[id].id}">
@@ -76,6 +76,12 @@
 		border-radius: 100%;
 	}
 
+	.image:hover {
+		transition: 0.2s ease;
+		height: 31vh;
+		width: 31vh;
+	}
+
 	.centering {
 		display: flex;
 		flex-direction: column;
@@ -97,5 +103,15 @@
 
 		width: 99vw;
 		background-color: var(--secondary-color);
+	}
+
+	#imgWrapperA {
+		object-fit: cover;
+		overflow: hidden;
+
+		height: 30vh;
+		width: 30vh;
+
+		border-radius: 100%;
 	}
 </style>
