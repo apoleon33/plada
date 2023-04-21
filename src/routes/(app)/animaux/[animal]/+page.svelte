@@ -3,7 +3,7 @@
 
 	import { fade } from 'svelte/transition';
 
-	import Animal from './Animal.svelte';
+	import Animal from '$lib/Animal.svelte';
 
 	let listeAnimaux;
 
