@@ -34,7 +34,7 @@
 					class:adopted={animal.statut === 'adopté'}
 					class:notAdopted={animal.statut !== 'adopté'}
 				>
-					{animal.statut}
+					{animal.statut}(e)
 				</h2>
 			</div>
 			<h2 class="text">{animal.sexe}</h2>
