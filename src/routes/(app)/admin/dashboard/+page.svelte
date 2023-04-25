@@ -1,5 +1,6 @@
 <script>
 	import Animal from './Animal.svelte';
+	import Editor from './Editor.svelte';
 
 	export let data;
 	export let form;
@@ -10,6 +11,16 @@
 
 	const listImageChats = data.imageChats;
 	const listImageChiens = data.imageChiens;
+
+	let editStatus = false;
+	let specie = 'chats';
+	const showEditStatus = () => {
+		editStatus = true;
+	};
+
+	$: {
+		specie;
+	}
 </script>
 
 {#if form?.success}
@@ -20,6 +31,11 @@
 				{#each chats as chat, i}
 					<Animal datas={chat} lien={listImageChats[i]} specie="chats" />
 				{/each}
+				<button
+					on:click={() => {
+						showEditStatus('chats');
+					}}>Ajouter un nouveau chat</button
+				>
 			</div>
 		</div>
 		<div class="animalAndTitleWrapper">
@@ -28,9 +44,18 @@
 				{#each chiens as chien, y}
 					<Animal datas={chien} lien={listImageChiens[y]} specie="chiens" />
 				{/each}
+				<button
+					on:click={() => {
+						showEditStatus();
+						specie = 'chiens';
+					}}>Ajouter un nouveau chien</button
+				>
 			</div>
 		</div>
 	</div>
+	{#if editStatus}
+		<Editor bind:editStatus bind:specie redirectionLink="/api/add" />
+	{/if}
 {:else}
 	<p>wrong password!, <a href="/admin">retry</a></p>
 {/if}

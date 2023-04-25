@@ -1,5 +1,5 @@
 import { PASSWORD } from '$env/static/private';
-import { addImageToDatabase, modifyEntry } from '$lib/database.server.js';
+import { addNewEntry, addImageToDatabase } from '$lib/database.server.js';
 export const actions = {
 	default: async ({ cookies, request }) => {
 		const data = await request.formData();
@@ -16,21 +16,19 @@ export const actions = {
 		const mainImage = data.get('icon');
 		const additionnalImages = data.getAll('additionnalPhotos');
 
-		const imageToRemoveLength = data.get('imageToRemoveLength');
-
-		let modifiedData = {
+		const newAnimal = {
 			name: nom,
 			naissance: naissance,
 			sexe: sexe,
 			type: type,
 			statut: statut,
 			description: description,
-			link: 0,
-			additionnalPhoto: []
+			link: `${specie}/default.png`,
+			additionnalPhoto: [`${specie}/default.png`]
 		};
 
 		if (mainImage.size !== 0) {
-			modifiedData.link = `${specie}/${nom}/${mainImage.name}`;
+			newAnimal.link = `${specie}/${nom}/${mainImage.name}`;
 			addImageToDatabase(
 				await mainImage.arrayBuffer(),
 				`${specie}/${nom}/${mainImage.name}`,
@@ -38,9 +36,9 @@ export const actions = {
 			);
 		}
 
-		if (additionnalImages[0].size !== 0) {
+		if (additionnalImages.length !== 0) {
 			for (let i = 0; i < additionnalImages.length; i++) {
-				modifiedData.additionnalPhoto.push(`${specie}/${nom}/${additionnalImages[i].name}`);
+				newAnimal.additionnalPhoto.push(`${specie}/${nom}/${additionnalImages[i].name}`);
 				addImageToDatabase(
 					await additionnalImages[i].arrayBuffer(),
 					`${specie}/${nom}/${additionnalImages[i].name}`,
@@ -49,14 +47,9 @@ export const actions = {
 			}
 		}
 
-		let imageToRemove = [];
-		for (let i = 0; i < imageToRemoveLength; i++) {
-			imageToRemove.push(data.get(`imageToRemove${i}`));
-		}
-
 		const enteredPassword = data.get('password');
 		if (enteredPassword === PASSWORD) {
-			modifyEntry(modifiedData, originalName, specie, imageToRemove);
+			addNewEntry(newAnimal, specie);
 		}
 
 		return {

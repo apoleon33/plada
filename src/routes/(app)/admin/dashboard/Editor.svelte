@@ -1,13 +1,36 @@
 <script>
 	import Close from './Close.svelte';
 
-	export let animalDatas;
+	export let animalDatas = {
+		name: '',
+		naissance: 2023,
+		sexe: 'Male',
+		type: 'sans type',
+		statut: 'non adopté',
+		description: '',
+		additionnalPhoto: []
+	};
 	export let editStatus;
-	export let lien;
+	export let lien = 'https://pfps.gg/assets/pfps/9479-cat.png';
 	export let specie = 'chats';
+	export let redirectionLink = '/api/modify';
+
+	let modifiedlist = animalDatas.additionnalPhoto;
+	let needToReloadImages = false;
+	let newlyAddedImages = [];
+	let imageToRemove = [];
 
 	const closeEdit = () => {
 		editStatus = false;
+	};
+
+	const removeImage = (image) => {
+		imageToRemove.push(image);
+		const index = modifiedlist.indexOf(image);
+
+		if (index > -1) {
+			modifiedlist.splice(index, 1);
+		}
 	};
 </script>
 
@@ -15,12 +38,70 @@
 	<div id="content">
 		<div id="closeWrapper"><button on:click={closeEdit}> <Close /></button></div>
 
-		<form id="form" action="/api/modify" method="POST" target="_blank">
+		<form
+			id="form"
+			action={redirectionLink}
+			method="POST"
+			target="_blank"
+			enctype="multipart/form-data"
+		>
 			<input type="hidden" name="originalName" value={animalDatas.name} />
 			<input type="hidden" name="animalSpecie" value={specie} />
-			<div id="imageWrapper">
-				<img src={lien} alt={animalDatas.name} />
+			{#key needToReloadImages}
+				{#each imageToRemove as image, i}
+					<input type="hidden" name="imageToRemove{i}" value={image} />
+				{/each}
+				<input type="hidden" name="imageToRemoveLength" value={imageToRemove.length} />
+			{/key}
+			<div id="imageAndAdditionnalPhotoWrapper">
+				<div id="imageWrapper">
+					<img src={lien} alt={animalDatas.name} />
+				</div>
+				{#key needToReloadImages}
+					<div id="additionnalPhotoWrapper">
+						<h4>Additionnals photos:</h4>
+
+						{#each modifiedlist as photo}
+							<div id="photoWrapper">
+								<p>{photo}</p>
+								<button
+									on:click={() => {
+										needToReloadImages = !needToReloadImages;
+										removeImage(photo);
+									}}
+								>
+									supprimer
+								</button>
+							</div>
+						{/each}
+						{#each newlyAddedImages as image}
+							<div id="photoWrapper">
+								<p>{image}</p>
+								<button
+									on:click={() => {
+										needToReloadImages = !needToReloadImages;
+									}}
+								>
+									supprimer
+								</button>
+							</div>
+						{/each}
+					</div>
+				{/key}
 			</div>
+
+			<label for="icon">changer l'image principale de l'animal</label>
+			<input type="file" id="icon" name="icon" accept="image/png, image/jpeg" />
+
+			<label for="additionnalPhotos">Ajouter des images auxiliaires</label>
+			<input
+				type="file"
+				id="additionnalPhotos"
+				name="additionnalPhotos"
+				accept="image/png, image/jpeg"
+				multiple
+			/>
+
 			<div id="nomWrapper" class="propertyWrapper">
 				<label for="nom">Nom</label>
 				<input type="text" value={animalDatas.name} id="nom" name="nom" />
@@ -147,6 +228,21 @@
 	.propertyWrapper {
 		display: flex;
 		flex-direction: column;
+	}
+
+	#imageAndAdditionnalPhotoWrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	#photoWrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		gap: 1em;
 	}
 
 	#wrapper {
