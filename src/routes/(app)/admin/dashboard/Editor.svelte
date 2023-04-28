@@ -47,12 +47,15 @@
 		>
 			<input type="hidden" name="originalName" value={animalDatas.name} />
 			<input type="hidden" name="animalSpecie" value={specie} />
+			<input type="hidden" name="animalId" value={animalDatas.id} />
+
 			{#key needToReloadImages}
 				{#each imageToRemove as image, i}
 					<input type="hidden" name="imageToRemove{i}" value={image} />
 				{/each}
 				<input type="hidden" name="imageToRemoveLength" value={imageToRemove.length} />
 			{/key}
+
 			<div id="imageAndAdditionnalPhotoWrapper">
 				<div id="imageWrapper">
 					<img src={lien} alt={animalDatas.name} />

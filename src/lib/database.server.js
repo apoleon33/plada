@@ -144,3 +144,20 @@ export const addImageToDatabase = async (file, pathName, fileType) => {
 		console.log(`Uploaded a blob or file at ${newRef.fullPath}`);
 	});
 };
+
+export const removeEntry = async (id, specie) => {
+	let database = await getFromDatabase(collec);
+
+	console.log(database[0][specie].length);
+	console.log(`id du chat: ${id}`);
+
+	for (let i = 0; i < database[0][specie].length; i++) {
+		if (database[0][specie][i].id == id) {
+			database[0][specie].splice(i, 1);
+			console.log(database[0][specie]);
+			break;
+		}
+	}
+
+	updateDatabase(database[0]);
+};

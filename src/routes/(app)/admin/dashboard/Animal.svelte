@@ -40,6 +40,17 @@
 			<h3 id="statut">{statut}</h3>
 		</div>
 		<button id="editWrapper" on:click={showEditStatus}><Edit /></button>
+		<form
+			id="form"
+			action="/api/remove"
+			method="POST"
+			target="_blank"
+			enctype="multipart/form-data"
+		>
+			<input type="hidden" name="animalId" value={datas.id} />
+			<input type="hidden" name="specie" value={specie} />
+			<input type="submit" value="delete" id="submit" />
+		</form>
 	</div>
 </div>
 

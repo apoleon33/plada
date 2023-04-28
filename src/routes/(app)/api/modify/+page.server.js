@@ -61,7 +61,7 @@ export const actions = {
 
 		return {
 			success: enteredPassword === PASSWORD,
-			data: { originalName: originalName, specie: specie, nom: nom, naissance: naissance }
+			data: modifiedData
 		};
 	}
 };
