@@ -50,6 +50,9 @@
 		</div>
 	</div>
 
+	<div id="space" />
+
+	<h2 id="recommendationLabel" class="text">Nos autres {data.animal} :</h2>
 	<Recommendation
 		animal={data.animal}
 		idAnimal={animal.id}
@@ -112,5 +115,16 @@
 		max-width: 700px;
 		text-align: justify;
 		text-justify: inter-word;
+	}
+
+	#space {
+		padding-top: 3em;
+	}
+
+	#recommendationLabel {
+		background-color: var(--secondary-color);
+		width: fit-content;
+		border-radius: 0 10px 0 0;
+		padding: 10px;
 	}
 </style>
