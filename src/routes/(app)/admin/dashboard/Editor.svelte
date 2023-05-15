@@ -1,5 +1,5 @@
 <script>
-	import Close from './Close.svelte';
+	import Close from '$lib/icons/Close.svelte';
 
 	export let animalDatas = {
 		name: '',

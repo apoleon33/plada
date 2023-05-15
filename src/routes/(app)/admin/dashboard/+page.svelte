@@ -11,6 +11,7 @@
 
 	const listImageChats = data.imageChats;
 	const listImageChiens = data.imageChiens;
+	const listeImageAutres = data.imageAutres;
 
 	let editStatus = false;
 	let specie = 'chats';
@@ -49,6 +50,20 @@
 						showEditStatus();
 						specie = 'chiens';
 					}}>Ajouter un nouveau chien</button
+				>
+			</div>
+		</div>
+		<div class="animalAndTitleWrapper">
+			<h1>Autres animaux:</h1>
+			<div class="animalWrapper">
+				{#each autres as autre, z}
+					<Animal datas={autre} lien={listeImageAutres[z]} specie="autres" } />
+				{/each}
+				<button
+					on:click={() => {
+						showEditStatus();
+						specie = 'autres';
+					}}>Ajouter un nouvel animal</button
 				>
 			</div>
 		</div>
