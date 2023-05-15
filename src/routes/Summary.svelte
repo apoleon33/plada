@@ -1,6 +1,6 @@
 <div id="wrapper">
 	<div class="dropdown">
-		<span> <a href="/" class="text">L'association </a></span>
+		<span> <a href="/" class="text" id="selected">L'association </a></span>
 		<div class="dropdown-content">
 			<a href="/" class="text option-menu"> Accueil </a>
 			<a href="/association/contact" class="text option-menu"> Contact</a>
@@ -110,5 +110,10 @@
 
 	#dropdown-adopter {
 		width: 215%;
+	}
+
+	#selected {
+		color: var(--secondary-text-color);
+		font-weight: bold;
 	}
 </style>

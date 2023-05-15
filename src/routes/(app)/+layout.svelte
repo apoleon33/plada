@@ -1,13 +1,21 @@
 <script>
 	import '../../style.css';
 	import Ear from '../Ear.svelte';
+
+	export let data;
+
+	console.log(data.mainPath);
 </script>
 
 <div id="earWrapper">
 	<div id="leftEar" class="earWrapper"><Ear width="4" color="--bg-color" /></div>
 	<div id="wrapper">
 		<div class="dropdown">
-			<span> <a href="/" class="text">L'association </a></span>
+			<span>
+				<a class:actuallySelected={data.mainPath === 'association'} href="/" class="text">
+					L'association
+				</a></span
+			>
 			<div class="dropdown-content">
 				<a href="/" class="text option-menu"> Accueil </a>
 				<a href="/association/contact" class="text option-menu"> Contact</a>
@@ -15,7 +23,16 @@
 			</div>
 		</div>
 		<div class="dropdown">
-			<span> <a href="/" class="text">Adopter </a></span>
+			<span>
+				<a
+					class:actuallySelected={data.mainPath === 'comment-ca-marche' ||
+						data.mainPath === 'animaux'}
+					href="/"
+					class="text"
+				>
+					Adopter
+				</a></span
+			>
 			<div class="dropdown-content" id="dropdown-adopter">
 				<a href="/comment-ca-marche" class="text option-menu"> Comment ça marche ? </a>
 				<a href="/animaux/chats" class="text option-menu"> Chats </a>
@@ -25,7 +42,11 @@
 		</div>
 
 		<div class="dropdown">
-			<span> <a href="/aider" class="text">Nous aider </a></span>
+			<span>
+				<a class:actuallySelected={data.mainPath === 'aider'} href="/aider" class="text">
+					Nous aider
+				</a>
+			</span>
 			<div class="dropdown-content" id="dropdown-help">
 				<a href="/aider/don" class="text option-menu"> Faire un don </a>
 				<a href="/aider/famille-accueil" class="text option-menu last-element">
@@ -175,5 +196,10 @@
 		to {
 			background-position: 100% -100%;
 		}
+	}
+
+	.actuallySelected {
+		color: var(--secondary-text-color);
+		font-weight: bold;
 	}
 </style>
