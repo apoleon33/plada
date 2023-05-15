@@ -8,6 +8,7 @@
 
 	let bigImage = 0;
 	let animal, imgToSend, otherAnimals;
+	let zoomStatut = false;
 	$: {
 		animal = data.donnee;
 		otherAnimals = data.recommendation;
@@ -15,6 +16,10 @@
 		imgToSend = [animal.link];
 		imgToSend = imgToSend.concat(animal.additionnalPhoto);
 	}
+
+	const changeZoomSTatus = () => {
+		zoomStatut = !zoomStatut;
+	};
 </script>
 
 <svelte:head>
@@ -24,7 +29,17 @@
 <div id="empty" />
 {#key (animal, data)}
 	<div id="wrapper" in:fade>
-		<div id="imgWrapper"><img alt={animal.name} src={data.images[bigImage]} /></div>
+		<div id="imgWrapper">
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<img
+				id="imgMain"
+				alt={animal.name}
+				src={data.images[bigImage]}
+				on:click={() => {
+					changeZoomSTatus();
+				}}
+			/>
+		</div>
 		<div id="textWrapper">
 			<div id="nameAndAdoptedWrapper">
 				<h1 class="text" id="name">{animal.name}</h1>
@@ -60,13 +75,23 @@
 		listImages={data.otherImages}
 		bind:bigImage
 	/>
+
+	{#if zoomStatut}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div
+			id="zoomWrapper"
+			on:click={() => {
+				changeZoomSTatus();
+			}}
+		>
+			<img id="zoomedImage" alt={animal.name} src={data.images[bigImage]} />
+		</div>
+	{/if}
 {/key}
 
 <style>
 	img {
-		max-width: 600px;
 		border-radius: 10px;
-		max-height: 600px;
 	}
 
 	.text {
@@ -87,6 +112,16 @@
 		justify-content: start;
 	}
 
+	#imgMain {
+		max-height: 600px;
+		max-width: 600px;
+	}
+
+	#imgMain:hover {
+		cursor: zoom-in;
+		filter: drop-shadow(0px -5px 3px rgba(0, 0, 0, 0.128));
+	}
+
 	#empty {
 		padding: 1em;
 	}
@@ -97,6 +132,7 @@
 		justify-content: center;
 
 		gap: 1em;
+		overscroll-behavior: contain;
 	}
 
 	#name {
@@ -126,5 +162,32 @@
 		width: fit-content;
 		border-radius: 0 10px 0 0;
 		padding: 10px;
+	}
+
+	#zoomWrapper {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 0;
+
+		backdrop-filter: blur(10px);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#zoomedImage {
+		width: auto;
+		height: auto;
+
+		max-height: 95vh;
+	}
+
+	#zoomedImage:hover {
+		cursor: zoom-out;
 	}
 </style>
