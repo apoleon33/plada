@@ -94,6 +94,8 @@
 		/*padding-top: 3em;*/
 		margin: 0;
 		left: 0px;
+
+		transition: all 0.3s ease-in-out;
 	}
 
 	#imgWrapper {

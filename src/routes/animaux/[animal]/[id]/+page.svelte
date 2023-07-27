@@ -30,15 +30,17 @@
 {#key (animal, data)}
 	<div id="wrapper" in:fade>
 		<div id="imgWrapper">
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<img
-				id="imgMain"
-				alt={animal.name}
-				src={data.images[bigImage]}
-				on:click={() => {
-					changeZoomSTatus();
-				}}
-			/>
+			{#key data.images[bigImage]}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<img
+					id="imgMain"
+					alt={animal.name}
+					src={data.images[bigImage]}
+					on:click={() => {
+						changeZoomSTatus();
+					}}
+				/>
+			{/key}
 		</div>
 		<div id="textWrapper">
 			<div id="nameAndAdoptedWrapper">
@@ -67,7 +69,7 @@
 
 	<div id="space" />
 
-	<h2 id="recommendationLabel" class="text">Nos autres {data.animal} :</h2>
+	<h2 id="recommendationLabel" transition:fade class="text">Nos autres {data.animal} :</h2>
 	<Recommendation
 		animal={data.animal}
 		idAnimal={animal.id}
