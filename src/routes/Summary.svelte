@@ -9,7 +9,6 @@
 	const mobileSize = 480;
 	let size;
 	let statutBouton = false;
-	let expandButton = 0; // 0->none 1->l'association  2->adopter 3->aider
 	$: {
 		checkUrl();
 		console.log($page.url.pathname);
@@ -91,24 +90,14 @@
 				<div id="mobile-menu-wrapper" in:fly={{ x: -100 }} out:fly={{ x: -100 }}>
 					<h3>Pour l'amour des animaux</h3>
 
-					<div class="dropdown-container" class:actualLocation={checkUrl() == 0}>
+					<div class="dropdown" class:actualLocation={checkUrl() == 0}>
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<div
-							class="dropdown-title-container"
-							on:click={() => {
-								expandButton = expandButton !== 1 ? 1 : 0;
-							}}
-						>
+						<span>
 							<div class="dropdown-icon"><Home width="24" height="24" /></div>
 							<a href="/" class="text-title" id="selected">L'association </a>
-						</div>
+						</span>
 
-						<div
-							class="dropdown-content-container"
-							on:click={() => {
-								expandButton = expandButton !== 1 ? 1 : 0;
-							}}
-						>
+						<div class="dropdown-content">
 							<a href="/" class="text-container option-menu"> Accueil </a>
 							<a href="/association/contact" class="text-container option-menu"> Contact</a>
 							<a href="/association/archives" class="text-container option-menu last-element">
@@ -119,22 +108,12 @@
 
 					<div class="divider" />
 
-					<div class="dropdown-container" class:actualLocation={checkUrl() == 1}>
-						<div
-							class="dropdown-title-container"
-							on:click={() => {
-								expandButton = expandButton !== 2 ? 2 : 0;
-							}}
-						>
+					<div class="dropdown" class:actualLocation={checkUrl() == 1}>
+						<span>
 							<div class="dropdown-icon"><Pets width="24" height="24" /></div>
 							<a href="/adopter" class="text-title">Adopter </a>
-						</div>
-						<div
-							class="dropdown-content-container"
-							on:click={() => {
-								expandButton = expandButton !== 2 ? 2 : 0;
-							}}
-						>
+						</span>
+						<div class="dropdown-content">
 							<a href="/comment-ca-marche" class="text-container option-menu">
 								Comment ça marche ?
 							</a>
@@ -146,23 +125,13 @@
 
 					<div class="divider" />
 
-					<div class="dropdown-container" class:actualLocation={checkUrl() == 2}>
-						<div
-							class="dropdown-title-container"
-							on:click={() => {
-								expandButton = expandButton !== 3 ? 3 : 0;
-							}}
-						>
+					<div class="dropdown" class:actualLocation={checkUrl() == 2}>
+						<div class="dropdown-title-container">
 							<div class="dropdown-icon"><Help width="24" height="24" /></div>
 							<a href="/aider" class="text-title">Nous aider </a>
 						</div>
 
-						<div
-							class="dropdown-content-container"
-							on:click={() => {
-								expandButton = expandButton !== 3 ? 3 : 0;
-							}}
-						>
+						<div class="dropdown-content">
 							<a href="/aider/don" class="text-container option-menu"> Faire un don </a>
 							<a href="/aider/famille-accueil" class="text-container option-menu last-element">
 								Devenir famille d'accueil
@@ -192,8 +161,25 @@
 		background-color: var(--secondary-color);
 	}
 
+	span {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	#wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
 	@media screen and (max-width: 480px) {
 		/* mobile version */
+
+		span {
+			justify-content: start;
+		}
+
 		#unclickable {
 			position: fixed;
 			width: 100%;
@@ -237,18 +223,13 @@
 			/*padding-right: 12px;*/
 		}
 
-		.dropdown-container {
+		.dropdown {
 			margin-left: 12px;
 			border-radius: 24px;
 		}
 
-		.dropdown-title-container {
+		span {
 			width: 70vw;
-
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: start;
 		}
 
 		.dropdown-icon {
@@ -272,7 +253,7 @@
 			color: var(--secondary-text-color);
 		}
 
-		.dropdown-content-container {
+		.dropdown-content {
 			display: flex;
 			flex-direction: column;
 			align-items: start;
@@ -290,9 +271,6 @@
 		#wrapper {
 			border-bottom: 5px solid var(--secondary-color);
 
-			display: flex;
-			flex-direction: row;
-			align-items: center;
 			justify-content: space-between;
 		}
 
@@ -313,22 +291,16 @@
 	}
 
 	@media screen and (min-width: 480px) {
-		span {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-		}
-
 		a {
 			text-decoration: none;
 			color: unset;
 		}
 
+		span {
+			justify-content: center;
+		}
+
 		#wrapper {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
 			justify-content: center;
 			gap: 1em;
 			margin: 1em 0 1em 0;
@@ -414,11 +386,6 @@
 
 		#dropdown-adopter a {
 			max-width: 300px;
-		}
-
-		#selected a {
-			color: var(--secondary-text-color);
-			font-weight: bold;
 		}
 	}
 </style>
