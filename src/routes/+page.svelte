@@ -9,7 +9,6 @@
 	<title>Accueil</title>
 </svelte:head>
 
-<Summary />
 <a href="/" id="logoWrapper">
 	<img src="/logo.png" alt="association logo" in:fly={{ y: -100 }} /></a
 >
@@ -19,77 +18,114 @@
 </div>
 
 <div id="wrapper">
+	<div id="empty" />
 	<div id="content-left">
 		<div id="notre-association">
 			<h1 class="text">Notre association</h1>
 			<p class="text">
-				"Notre petite association loi 1901 basée en Gironde (33) prend en charge principalement les
+				Notre petite association loi 1901 basée en Gironde (33) prend en charge principalement les
 				chiens et les chats en situation de détresse et met en oeuvre toutes les actions
-				qualitatives afin qu'ils puissent à terme avoir leur doux foyer pour toujours. Chez
-				l'association Pour l'Amour des Animaux nous sommes contre la discrimination animale et
-				l'euthanasie. Pour tous nos protégés et ceux à venir, nous prônons des valeurs de
-				compassion, de bienveillance, de respect et de générosité qui sont nos mots d'ordre en toute
-				circonstance. Nous sélectionnons avec soins chaque famille d'accueil, selon des critères
-				très précis, afin de permettre à chaque animal de se requinquer et de regagner confiance
-				dans les meilleures conditions. Cela s'applique également dans le choix des futurs
-				adoptants, car nous refusons de prendre le risque de faire vivre une mauvaise expérience à
-				ces animaux qui ont déjà tant vécu... Notre exigence, notre détermination ainsi que notre
-				amour des bêtes, nous permettent de mener chaque jour ce combat contre la maltraitance
-				animale et d'avancer, pas à pas, à rendre meilleure la vie de ces petites boules de poils."
+				qualitatives afin qu'ils puissent à terme avoir leur doux foyer pour toujours.
+				<a href="/association/contact">En savoir plus</a>
 			</p>
 		</div>
 	</div>
 </div>
 
 <style>
-	img {
-		width: 30em;
-	}
-
-	p {
-		font-size: 125%;
-	}
 	.earWrapper {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
+	#wrapper {
+		background-color: var(--secondary-color);
+	}
+
 	.text {
 		text-align: center;
 	}
 
-	#logoWrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	/* mobile version */
+	@media screen and (max-width: 480px) {
+		img {
+			width: 100vw;
+		}
+
+		#earWrapper {
+			display: flex;
+			flex-direction: row;
+			align-items: end;
+			justify-content: space-between;
+		}
+
+		#leftEar {
+			padding-left: 20px;
+		}
+
+		#rightEar {
+			padding-right: 20px;
+		}
+
+		#wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			align-items: center;
+
+			width: 100vw;
+			height: 32vh;
+		}
+
+		p {
+			max-width: 90vw;
+		}
 	}
 
-	#leftEar {
-		grid-column: 2;
-	}
+	/* desktop version */
+	@media screen and (min-width: 480px) {
+		#logoWrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-	#rightEar {
-		grid-column: 4;
-	}
+		img {
+			width: 480px;
+		}
 
-	#earWrapper {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-	}
+		#earWrapper {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+		}
 
-	#wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 5%;
+		#leftEar {
+			grid-column: 2;
+		}
 
-		background-color: var(--secondary-color);
-		height: 50vh;
-	}
+		#rightEar {
+			grid-column: 4;
+		}
 
-	#content-left {
-		width: 50%;
+		#content-left {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#notre-association {
+			max-width: 480px;
+		}
+
+		.text {
+			margin-top: 0;
+			padding-top: 1em;
+		}
+
+		p {
+			font-size: larger;
+		}
 	}
 </style>
