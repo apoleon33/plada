@@ -20,39 +20,45 @@
 </script>
 
 <div id="wrapper" in:fly={{ y: 300, duration: 500 }} out:fly={{ y: 300, duration: 200 }}>
-	<a href={onclic}>
-		<div id="imgWrapper">
-			<img alt="un chat" src={lien} />
-		</div>
-	</a>
-	<a href={onclic}>
-		<div class="container" id="informationWrapper">
-			<div class="content"><h1 id="name" class="text">{name}</h1></div>
-
-			<div class="dummy">
-				<h2
-					id="sexe"
-					class="text"
-					in:fly={{ x: -100, duration: 200 }}
-					out:fly={{ x: -100, duration: 200 }}
-				>
-					{sentence}
-					{#if sexe === 'Femelle'}
-						<Female />
-					{:else}
-						<Male />
-					{/if}
-				</h2>
+	<div class="for-the-color">
+		<a href={onclic}>
+			<div id="imgWrapper">
+				<img alt={name} src={lien} />
 			</div>
-		</div>
-	</a>
+		</a>
+		<a href={onclic}>
+			<div class="container" id="informationWrapper">
+				<div class="content"><h1 id="name" class="text">{name}</h1></div>
+
+				<div class="dummy">
+					<h2
+						id="sexe"
+						class="text"
+						in:fly={{ x: -100, duration: 200 }}
+						out:fly={{ x: -100, duration: 200 }}
+					>
+						{sentence}
+						{#if sexe === 'Femelle'}
+							<Female />
+						{:else}
+							<Male />
+						{/if}
+					</h2>
+				</div>
+			</div>
+		</a>
+	</div>
 </div>
 
 <style>
+	:root {
+		--card-size-mobile: 95vw;
+	}
+
 	img {
 		width: 500px;
 		height: 333px;
-		border-radius: 15px 15px 0 0;
+		border-radius: 24px;
 		object-fit: cover;
 		overflow: hidden;
 		transform-origin: center center;
@@ -98,8 +104,6 @@
 	}
 
 	#informationWrapper {
-		border-radius: 0 0 15px 15px;
-		background-color: var(--secondary-color);
 		width: 500px;
 		transition: 600ms;
 
@@ -114,5 +118,24 @@
 		flex-direction: column;
 		justify-content: start;
 		align-items: center;
+	}
+
+	.for-the-color {
+		background-color: var(--secondary-color);
+		border-radius: 24px;
+	}
+
+	@media screen and (max-width: 480px) {
+		/* mobile version */
+		#imgWrapper {
+			width: var(--card-size-mobile);
+		}
+		img {
+			width: var(--card-size-mobile);
+		}
+
+		#informationWrapper {
+			width: var(--card-size-mobile);
+		}
 	}
 </style>

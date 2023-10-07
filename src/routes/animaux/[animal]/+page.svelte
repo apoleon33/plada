@@ -64,7 +64,21 @@
 
 	#animalWrapper {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 3em;
+	}
+
+	@media screen and (max-width: 480px) {
+		/* mobile version */
+		#animalWrapper {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 5vw;
+		}
+	}
+
+	@media screen and (min-width: 480px) {
+		/* desktop version */
+		#animalWrapper {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 3em;
+		}
 	}
 </style>
