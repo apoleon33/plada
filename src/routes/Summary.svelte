@@ -6,6 +6,8 @@
 	import Pets from '$lib/icons/Pets.svelte';
 	import Help from '$lib/icons/Help.svelte';
 
+	import logo from '$lib/logo.svg';
+
 	const mobileSize = 480;
 	let size;
 	let statutBouton = false;
@@ -16,19 +18,28 @@
 
 	const checkUrl = () => {
 		let url = $page.url.pathname;
+		let urlArgs = url.split('/');
+		let subDomain = urlArgs[1];
+		console.log(`subDomain: ${subDomain}`);
 		//console.log(url);
-		switch (url) {
-			case '/':
+		switch (subDomain) {
+			case '':
 				return 0;
 
-			case '/association/contact':
+			case 'association':
 				return 0;
 
-			case '/association/archives':
-				return 0;
-
-			case '/comment-ca-marche':
+			case 'adopter':
 				return 1;
+
+			case 'comment-ca-marche':
+				return 1;
+
+			case 'animaux':
+				return 1;
+
+			case 'aider':
+				return 2;
 
 			default:
 				return 0;
@@ -46,346 +57,245 @@
 	rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
 />
+
 <div id="wrapper">
-	{#if size > mobileSize}
-		<div class="dropdown" class:actualLocation={checkUrl() == 0}>
-			<span> <a href="/" class="text" id="selected">L'association </a></span>
-			<div class="dropdown-content" id="dropdown-accueil">
-				<a href="/" class=" first-element text option-menu "> Accueil </a>
-				<a href="/association/contact" class="text option-menu"> Contact</a>
-				<a href="/association/archives" class="text option-menu last-element"> Archives </a>
-			</div>
-		</div>
-		<div class="dropdown" class:actualLocation={checkUrl() == 1}>
-			<span> <a href="/" class="text">Adopter </a></span>
-			<div class="dropdown-content" id="dropdown-adopter">
-				<a href="/comment-ca-marche" class="text option-menu first-element"> Comment adopter</a>
-				<a href="/animaux/chats" class="text option-menu"> Chats </a>
-				<a href="/animaux/chiens" class="text option-menu"> Chiens</a>
-				<a href="/animaux/autres" class="text option-menu last-element"> Autres </a>
-			</div>
-		</div>
+	<img id="logo" src={logo} alt="association logo" />
 
-		<div class="dropdown" class:actualLocation={checkUrl() == 2}>
-			<span> <a href="/aider" class="text">Nous aider </a></span>
-			<div class="dropdown-content" id="dropdown-help">
-				<a href="/aider/don" class="text option-menu first-element"> Faire un don </a>
-				<a href="/aider/famille-accueil" class="text option-menu last-element">
-					Devenir famille d'accueil
-				</a>
-			</div>
-		</div>
-	{:else}
-		{#if statutBouton}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div
-				id="unclickable"
-				on:click|self={() => {
-					resetValues();
-				}}
-				in:fly
-				out:fly={{ opacity: 1 }}
-				data-sveltekit-reload
-			>
-				<div id="mobile-menu-wrapper" in:fly={{ x: -100 }} out:fly={{ x: -100 }}>
-					<h3>Pour l'amour des animaux</h3>
-
-					<div class="dropdown" class:actualLocation={checkUrl() == 0}>
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<span>
-							<div class="dropdown-icon"><Home width="24" height="24" /></div>
-							<a href="/" class="text-title" id="selected">L'association </a>
-						</span>
-
-						<div class="dropdown-content">
-							<a href="/" class="text-container option-menu"> Accueil </a>
-							<a href="/association/contact" class="text-container option-menu"> Contact</a>
-							<a href="/association/archives" class="text-container option-menu last-element">
-								Archives
-							</a>
-						</div>
-					</div>
-
-					<div class="divider" />
-
-					<div class="dropdown" class:actualLocation={checkUrl() == 1}>
-						<span>
-							<div class="dropdown-icon"><Pets width="24" height="24" /></div>
-							<a href="/adopter" class="text-title">Adopter </a>
-						</span>
-						<div class="dropdown-content">
-							<a href="/comment-ca-marche" class="text-container option-menu">
-								Comment ça marche ?
-							</a>
-							<a href="/animaux/chats" class="text-container option-menu"> Chats </a>
-							<a href="/animaux/chiens" class="text-container option-menu"> Chiens</a>
-							<a href="/animaux/autres" class="text-container option-menu last-element"> Autres </a>
-						</div>
-					</div>
-
-					<div class="divider" />
-
-					<div class="dropdown" class:actualLocation={checkUrl() == 2}>
-						<div class="dropdown-title-container">
-							<div class="dropdown-icon"><Help width="24" height="24" /></div>
-							<a href="/aider" class="text-title">Nous aider </a>
-						</div>
-
-						<div class="dropdown-content">
-							<a href="/aider/don" class="text-container option-menu"> Faire un don </a>
-							<a href="/aider/famille-accueil" class="text-container option-menu last-element">
-								Devenir famille d'accueil
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		{/if}
-		<!-- svelte-ignore a11y-missing-attribute -->
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<img
-			id="menu-icon"
-			src="/menu_FILL0_wght400_GRAD0_opsz48.png"
-			on:click={() => {
-				statutBouton = !statutBouton;
-				// console.log(statutBouton);
-			}}
-		/>
-		<img id="logo" src="/logo.png" alt="association logo" />
-	{/if}
+	<!-- svelte-ignore a11y-missing-attribute -->
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<img
+		id="menu-icon"
+		src="/menu_FILL0_wght400_GRAD0_opsz48.png"
+		on:click={() => {
+			statutBouton = !statutBouton;
+			// console.log(statutBouton);
+		}}
+	/>
 </div>
 
+{#if statutBouton}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div
+		id="unclickable"
+		on:click|self={() => {
+			resetValues();
+		}}
+		in:fly
+		out:fly={{ opacity: 1 }}
+		data-sveltekit-reload
+	>
+		<div id="mobile-menu-wrapper" in:fly={{ x: -100 }} out:fly={{ x: -100 }}>
+			<h3>Pour l'amour des animaux</h3>
+
+			<div class="dropdown" class:actualLocation={checkUrl() == 0}>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<span>
+					<div class="dropdown-icon"><Home width="24" height="24" /></div>
+					<a href="/" class="text-title" id="selected">L'association </a>
+				</span>
+
+				<div class="dropdown-content">
+					<a href="/" class="text-container option-menu"> Accueil </a>
+					<a href="/association/contact" class="text-container option-menu"> Contact</a>
+					<a href="/association/archives" class="text-container option-menu last-element">
+						Archives
+					</a>
+				</div>
+			</div>
+
+			<div class="divider" />
+
+			<div class="dropdown" class:actualLocation={checkUrl() == 1}>
+				<span>
+					<div class="dropdown-icon"><Pets width="24" height="24" /></div>
+					<a href="/adopter" class="text-title">Adopter </a>
+				</span>
+				<div class="dropdown-content">
+					<a href="/comment-ca-marche" class="text-container option-menu"> Comment ça marche ? </a>
+					<a href="/animaux/chats" class="text-container option-menu"> Chats </a>
+					<a href="/animaux/chiens" class="text-container option-menu"> Chiens</a>
+					<a href="/animaux/autres" class="text-container option-menu last-element"> Autres </a>
+				</div>
+			</div>
+
+			<div class="divider" />
+
+			<div class="dropdown" class:actualLocation={checkUrl() == 2}>
+				<span class="dropdown-title-container">
+					<div class="dropdown-icon"><Help width="24" height="24" /></div>
+					<a href="/aider" class="text-title">Nous aider </a>
+				</span>
+
+				<div class="dropdown-content">
+					<a href="/aider/don" class="text-container option-menu"> Faire un don </a>
+					<a href="/aider/famille-accueil" class="text-container option-menu last-element">
+						Devenir famille d'accueil
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
+
 <style>
+	:root {
+		color-scheme: light;
+	}
+
 	.actualLocation {
 		transition: 600ms;
-		background-color: var(--secondary-color);
+		background-color: var(--md-sys-color-secondary-container);
+		transition: 600ms;
 	}
 
 	span {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		justify-content: start;
 	}
 
 	#wrapper {
+		position: sticky;
+
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
+		justify-content: space-between;
+
+		background-color: #fff8f880;
+		backdrop-filter: blur(30px);
+	}
+
+	#unclickable {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 0;
+
+		backdrop-filter: brightness(50%);
+		transition: 400ms;
+	}
+
+	#mobile-menu-wrapper {
+		color-scheme: light;
+		height: 100vh;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+		gap: 10px;
+
+		background-color: var(--md-sys-color-surface);
+		border-radius: 0 24px 24px 0;
+		transition: 600ms;
+	}
+
+	h3 {
+		margin-left: 16px;
+	}
+
+	.divider {
+		height: 1px;
+		width: calc(100% - (16px * 2));
+		background-color: var(--main-text-color);
+		margin-left: 16px;
+		/*padding-right: 12px;*/
+	}
+
+	.dropdown {
+		margin-left: 12px;
+		border-radius: 24px;
+	}
+
+	.dropdown-icon {
+		padding-left: 16px;
+	}
+
+	.text-title {
+		height: 56px;
+		margin-left: 16px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: var(--main-text-color);
+		font-weight: bold;
+		font-size: 125%;
+	}
+
+	.text-container {
+		color: var(--secondary-text-color);
+	}
+
+	.dropdown-content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+		gap: 10px;
+
+		padding-bottom: 10px;
+	}
+
+	.option-menu {
+		/*border-top: 3px solid var(--third-color);*/
+		margin-left: 70px;
+	}
+
+	#menu-icon {
+		padding-left: 10px;
+	}
+
+	#logo {
+		max-width: 70vw;
+
+		padding: 10px 10px 10px 0px;
+	}
+
+	a {
+		all: unset;
+
+		border-radius: 24px;
 	}
 
 	@media screen and (max-width: 480px) {
 		/* mobile version */
-
-		span {
-			justify-content: start;
-		}
-
-		#unclickable {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			left: 0;
-			top: 0;
-			z-index: 0;
-
-			backdrop-filter: brightness(50%);
-			transition: 400ms;
-		}
-
 		#mobile-menu-wrapper {
 			width: 75vw;
-			height: 100vh;
-
-			position: absolute;
-			top: 0;
-			left: 0;
-
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: start;
-			gap: 10px;
-
-			background-color: var(--secondary-level);
-			border-radius: 0 24px 24px 0;
-			transition: 600ms;
-		}
-
-		h3 {
-			margin-left: 16px;
-		}
-
-		.divider {
-			height: 1px;
-			width: calc(100% - (16px * 2));
-			background-color: var(--main-text-color);
-			margin-left: 16px;
-			/*padding-right: 12px;*/
-		}
-
-		.dropdown {
-			margin-left: 12px;
-			border-radius: 24px;
 		}
 
 		span {
 			width: 70vw;
 		}
-
-		.dropdown-icon {
-			padding-left: 16px;
-		}
-
-		.text-title {
-			height: 56px;
-			margin-left: 16px;
-
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			color: var(--main-text-color);
-			font-weight: bold;
-			font-size: 125%;
-		}
-
-		.text-container {
-			color: var(--secondary-text-color);
-		}
-
-		.dropdown-content {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: start;
-			gap: 10px;
-
-			padding-bottom: 10px;
-		}
-
-		.option-menu {
-			/*border-top: 3px solid var(--third-color);*/
-			margin-left: 70px;
-		}
-
-		#wrapper {
-			border-bottom: 5px solid var(--secondary-color);
-
-			justify-content: space-between;
-		}
-
-		#menu-icon {
-			padding-left: 10px;
-		}
-
-		#logo {
-			width: 90px;
-			height: 90px;
-
-			padding-right: 10px;
-		}
-
-		a {
-			all: unset;
-		}
 	}
 
 	@media screen and (min-width: 480px) {
-		a {
-			text-decoration: none;
-			color: unset;
+		/* desktop version */
+		#mobile-menu-wrapper {
+			width: 25vw;
 		}
 
 		span {
-			justify-content: center;
+			width: 23vw;
 		}
 
-		#wrapper {
-			justify-content: center;
-			gap: 1em;
-			margin: 1em 0 1em 0;
-			padding-bottom: 1em;
-
-			grid-column: 3;
+		#menu-icon {
+			padding-right: 10px;
 		}
 
-		.text {
-			font-size: 30px;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-
-			padding: 0.75em 1em 0.75em 1em;
-			border-radius: 30px;
-
-			min-width: 164px;
-		}
-
-		.dropdown:hover {
-			backdrop-filter: brightness(90%);
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: var(--secondary-level);
-			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-			z-index: 1;
-			left: 0px;
-
-			border-radius: 24px 24px 24px 24px;
-			width: 100%;
-		}
-
-		.dropdown-content a {
-			color: black;
-
-			padding: 12px;
-
-			text-decoration: none;
-			display: block;
-
-			border-radius: 24px;
-		}
-
-		.dropdown-content a:hover {
-			backdrop-filter: brightness(90%);
-		}
-
-		.dropdown:hover .dropdown-content {
-			display: block;
-		}
-
-		.option-menu {
-			padding-right: 30em;
-			font-size: 20px;
-		}
-
-		.option-menu:hover {
-			transition: 200ms;
-			font-weight: bold;
-		}
-
-		.first-element {
-			border-radius: 24px 24px 0 0;
-		}
-
-		.last-element {
-			border-radius: 0 0 24px 24px;
-		}
-
-		#dropdown-accueil a {
-			max-width: 204px;
-		}
-
-		#dropdown-help a {
-			max-width: 170px;
-		}
-
-		#dropdown-adopter a {
-			max-width: 300px;
+		a:hover {
+			cursor: pointer;
+			text-decoration: underline;
 		}
 	}
 </style>
