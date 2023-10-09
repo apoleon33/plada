@@ -1,7 +1,7 @@
 <h1 align="left">Pour l'amour des animaux</h1>
 <img src="https://raw.githubusercontent.com/apoleon33/plada/master/static/logo.jpg" width="200" align="right">
 
-> site web pour l'association "Pour l'amour des animaux"
+> site web de l'association "Pour l'amour des animaux"
 <img src="https://img.shields.io/badge/Svelte-323330?style=flat&logo=svelte&logoColor=orange?color=orange">
 
 ## À propos de l'association
