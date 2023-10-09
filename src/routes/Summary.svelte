@@ -10,7 +10,7 @@
 
 	const mobileSize = 480;
 	let size;
-	let statutBouton = false;
+	export let statutBouton = false;
 	$: {
 		checkUrl();
 		console.log($page.url.pathname);
@@ -157,6 +157,8 @@
 
 	#wrapper {
 		position: sticky;
+		top: 0;
+		left: 0;
 
 		display: flex;
 		flex-direction: row;
@@ -174,7 +176,7 @@
 		height: 100%;
 		left: 0;
 		top: 0;
-		z-index: 0;
+		z-index: 1;
 
 		backdrop-filter: brightness(50%);
 		transition: 400ms;
