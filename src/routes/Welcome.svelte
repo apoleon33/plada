@@ -147,14 +147,12 @@
 			text-transform: var(--md-sys-typescale-display-small-text-transform);
 			text-decoration: var(--md-sys-typescale-display-small-text-decoration);
 
-			padding-left: 2em;
+			margin-left: 2em;
 		}
 
 		#en-savoir-plus {
 			grid-column: 3 / 5;
 			grid-row: 2;
-
-			margin-left: 2em;
 		}
 	}
 
