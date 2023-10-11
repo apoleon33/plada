@@ -159,6 +159,7 @@
 		position: sticky;
 		top: 0;
 		left: 0;
+		z-index: 1;
 
 		display: flex;
 		flex-direction: row;
