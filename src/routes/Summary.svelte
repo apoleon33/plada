@@ -259,6 +259,10 @@
 		padding-left: 10px;
 	}
 
+	#menu-icon:hover {
+		cursor: pointer;
+	}
+
 	#logo {
 		max-width: 70vw;
 
