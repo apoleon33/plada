@@ -26,7 +26,7 @@
 		<div id="sqq">
 			<div id="square-wrapper">
 				<div class="square first-element">
-					<Square titre="Maison d'acceuil" source={home} bind:screenSize />
+					<Square titre="Maison d'accueil" source={home} bind:screenSize />
 				</div>
 				<div class="square second-element">
 					<Square titre="Collecte de nourriture" source={collecte} bind:screenSize />
