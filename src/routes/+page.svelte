@@ -1,5 +1,6 @@
 <script>
 	import Welcome from './Welcome.svelte';
+	import Stats from './Stats.svelte';
 </script>
 
 <svelte:head>
@@ -7,5 +8,6 @@
 </svelte:head>
 
 <Welcome />
+<Stats />
 
 <div id="second-page" />
