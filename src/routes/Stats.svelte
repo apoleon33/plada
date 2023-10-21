@@ -40,7 +40,7 @@
 		<div id="imgg"><img src={chat} alt="illustration d'un chat" /></div>
 	</div>
 </div>
-<img id="wave" src={Wave} />
+<img id="wave" src={Wave} alt="une vague rose pour transitionner" />
 
 <style>
 	#separator {
