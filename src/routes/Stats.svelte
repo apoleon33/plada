@@ -63,6 +63,7 @@
 		border-radius: 24px;
 
 		margin-left: 5vw;
+		margin-right: 5vw;
 		padding: 1em;
 	}
 
@@ -105,30 +106,36 @@
 			grid-column: 1;
 			grid-row: 1;
 
-			max-width: 98vw;
+			margin: 0 5vw 0 5vw;
 
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(1, 1fr);
 		}
 
+		.square {
+			padding: 10px;
+		}
+
 		.first-element {
 			grid-column: 1;
 			grid-row: 1;
+
+			padding-left: 0;
 		}
 
 		.second-element {
 			grid-column: 2;
 			grid-row: 1 / 3;
+
+			padding-right: 0;
 		}
 
 		.third-element {
 			grid-column: 1;
 			grid-row: 2 / 3;
-		}
 
-		.square {
-			padding: 10px;
+			padding-left: 0;
 		}
 
 		#sqq {
