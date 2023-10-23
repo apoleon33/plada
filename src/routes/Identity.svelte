@@ -7,12 +7,15 @@
 	import phone from '$lib/icons/phone.svg';
 
 	let screenSize;
+	let screenY;
+
+	$: console.log(screenY);
 </script>
 
-<svelte:window bind:innerWidth={screenSize} />
+<svelte:window bind:innerWidth={screenSize} bind:scrollY={screenY} />
 
 <div id="wrapper">
-	<div id="card">
+	<div id="card" class:shadowed={screenY > 2850}>
 		<div id="content">
 			<h2 class:display-large={screenSize > 480}>Pour l'amour des animaux</h2>
 			<div class="information-container">
@@ -62,12 +65,16 @@
 		background-color: var(--md-sys-color-surface-container-low);
 		border-radius: 24px;
 
-		filter: drop-shadow(-10px -10px 41px rgb(0 0 0 / 0.25));
-
 		display: flex;
 		flex-direction: row;
 		align-items: start;
 		justify-content: space-between;
+
+		transition: 1000ms;
+	}
+
+	.shadowed {
+		filter: drop-shadow(-10px -10px 41px rgb(0 0 0 / 0.25));
 	}
 
 	#content {
