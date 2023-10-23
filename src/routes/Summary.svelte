@@ -59,7 +59,7 @@
 />
 
 <div id="wrapper">
-	<img id="logo" src={logo} alt="association logo" />
+	<a href="/"> <img id="logo" src={logo} alt="association logo" /></a>
 
 	<!-- svelte-ignore a11y-missing-attribute -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
