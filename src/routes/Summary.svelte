@@ -6,7 +6,7 @@
 	import Pets from '$lib/icons/Pets.svelte';
 	import Help from '$lib/icons/Help.svelte';
 
-	import logo from '$lib/logo.svg';
+	import logo from '$lib/icons/logo.svg';
 
 	const mobileSize = 480;
 	let size;

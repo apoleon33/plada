@@ -1,10 +1,10 @@
 <script>
-	import information from '$lib/information.svg';
-	import localisation from '$lib/localisation.svg';
-	import facebook from '$lib/faceboook.svg';
-	import instagram from '$lib/instagram.svg';
-	import paypall from '$lib/paypall.svg';
-	import phone from '$lib/phone.svg';
+	import information from '$lib/icons/information.svg';
+	import localisation from '$lib/icons/localisation.svg';
+	import facebook from '$lib/icons/faceboook.svg';
+	import instagram from '$lib/icons/instagram.svg';
+	import paypall from '$lib/icons/paypall.svg';
+	import phone from '$lib/icons/phone.svg';
 
 	let screenSize;
 </script>
@@ -113,8 +113,20 @@
 		justify-content: start;
 	}
 
-	#img-container img {
-		height: 50%;
-		border-radius: 24px;
+	@media screen and (min-width: 480px) {
+		/* desktop version */
+		#img-container img {
+			height: 50%;
+			border-radius: 24px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		/* mobile version */
+
+		#img-container img {
+			height: 50%;
+			border-radius: 24px;
+		}
 	}
 </style>

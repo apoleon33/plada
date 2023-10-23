@@ -1,11 +1,11 @@
 <script>
 	import Square from './Square.svelte';
 
-	import home from '$lib/home.svg';
-	import chat from '$lib/chat.svg';
-	import collecte from '$lib/collecte.svg';
-	import prevention from '$lib/prevention.svg';
-	import Wave from '$lib/Wave.svg';
+	import home from '$lib/icons/home.svg';
+	import chat from '$lib/assets/chat.svg';
+	import collecte from '$lib/icons/collecte.svg';
+	import prevention from '$lib/icons/prevention.svg';
+	import Wave from '$lib/assets/Wave.svg';
 
 	let screenSize;
 </script>
