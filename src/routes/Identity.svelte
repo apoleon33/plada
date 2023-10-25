@@ -20,6 +20,7 @@
 			<h2 class:display-large={screenSize > 480} class:headline-small={screenSize < 480}>
 				Pour l'amour des animaux
 			</h2>
+
 			<div class="information-container" class:body-medium={screenSize < 480}>
 				<img src={information} alt="icone d'information" />
 				<h3 class:display-small={screenSize > 480}>Organisation à but non lucrative</h3>
@@ -28,18 +29,32 @@
 				<img src={localisation} alt="icone de localisation" />
 				<h3 class:display-small={screenSize > 480}>Bordeaux</h3>
 			</div>
-			<div class="information-container" class:body-medium={screenSize < 480}>
-				<img src={facebook} alt="logo de Facebook" />
-				<h3 class:display-small={screenSize > 480}>Association Pour l'Amour des Animaux</h3>
-			</div>
-			<div class="information-container" class:body-medium={screenSize < 480}>
-				<img src={instagram} alt="logo d'Instagram" />
-				<h3 class:display-small={screenSize > 480}>pourlamourdesanimaux33</h3>
-			</div>
-			<div class="information-container" class:body-medium={screenSize < 480}>
-				<img src={paypall} alt="logo de Paypall" />
-				<h3 class:display-small={screenSize > 480}>Faire un don</h3>
-			</div>
+			<a
+				href="https://www.facebook.com/AssociationPourLAmourDesAnimaux"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<div class="information-container" class:body-medium={screenSize < 480}>
+					<img src={facebook} alt="logo de Facebook" />
+					<h3 class:display-small={screenSize > 480}>Association Pour l'Amour des Animaux</h3>
+				</div>
+			</a>
+			<a href="https://www.instagram.com/pourlamourdesanimaux33/" target="_blank" rel="noreferrer">
+				<div class="information-container" class:body-medium={screenSize < 480}>
+					<img src={instagram} alt="logo d'Instagram" />
+					<h3 class:display-small={screenSize > 480}>pourlamourdesanimaux33</h3>
+				</div>
+			</a>
+			<a
+				href="https://www.paypal.com/paypalme/assoplada33?locale.x=fr_FR&fbclid=IwAR2ld6EEMJtFVhFNV5-WUd6FaQBAy7UNJSMh2GyoSeuLn_cj0vnIg1aiQEI"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<div class="information-container" class:body-medium={screenSize < 480}>
+					<img src={paypall} alt="logo de Paypall" />
+					<h3 class:display-small={screenSize > 480}>Faire un don</h3>
+				</div>
+			</a>
 			<div class="information-container last-element" class:body-medium={screenSize < 480}>
 				<img src={phone} alt="un symbole de téléphone" />
 				<h3 class:display-small={screenSize > 480}>06 76 63 15 81</h3>
@@ -120,6 +135,16 @@
 			flex-direction: row;
 			align-items: start;
 			justify-content: space-between;
+		}
+
+		#content a {
+			all: unset;
+		}
+
+		#content a:hover {
+			cursor: pointer;
+			transition: 600ms;
+			text-decoration: underline;
 		}
 
 		#img-container {
